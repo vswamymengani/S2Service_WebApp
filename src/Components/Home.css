@@ -1,0 +1,196 @@
+/* Base styles */
+body {
+  font-family: 'Arial', sans-serif;
+  /* background-color: #f4f4f4; */
+}
+
+.dashboard-wrapper {
+  position: relative;
+
+ 
+}
+
+/* Hamburger menu button styles */
+.toggle-btn {
+  position: fixed; /* Fix the button to the top left corner */
+  top: 20px;
+  left: 20px; /* Adjusted position from the left edge */
+  background-color: #88a456; /* Change to your desired background color */
+  border: none;
+  width: 50px; /* Adjusted width for a better size */
+  height: 50px; /* Adjusted height for a better size */
+  cursor: pointer;
+  font-size: 24px;
+  color: white; /* Ensure the icon color contrasts well with the background */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  padding: 10px; /* Optional: Add padding for a larger clickable area */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -550px; /* Hide sidebar initially */
+  height: 100%;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+
+.sidebar.open {
+  left:  0; /* Sidebar slides in when open */
+}
+
+/* .profile-section {
+  text-align: center;
+} */
+
+/* .profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+} */
+
+.menu {
+  margin-top: 20px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.menu-item:hover {
+  background-color: rgb(147, 172, 97);
+}
+
+.menu-item span {
+  font-size: 16px;
+}
+
+
+
+/* Card grid styles */
+.card-grid {
+  margin-top: 100px;
+  margin-left: 150px; /* Shift content to the right to make room for the sidebar */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns in a row */
+  gap: 20px;
+  text-align: center;
+  padding: 20px; /* Space around the grid items */
+}
+
+/* Responsive design: Reduce columns to 2 on medium screens */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+  }
+}
+
+/* Responsive design: Reduce columns to 1 on small screens */
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(1, 1fr); /* One column */
+  }
+}
+
+.dashboard-card {
+  background-color: aqua;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 260px;
+}
+
+.dashboard-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card h3 {
+  margin: 0;
+}
+
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  
+
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar.open {
+    width: 200px;
+  }
+
+  .school-img {
+    width: 70%; /* Adjust width for smaller screens */
+    max-width: 200px; /* Maximum width for smaller screens */
+  }
+}
+
+
+
+
+.dashboard-title {
+  text-align: center;
+  font-size: 4.5rem; /* Increased font size */
+  font-weight: bold;
+  color: #331aaf; /* Fallback color (Tomato) */
+  background: linear-gradient(to right, #ff6347, #1e90ff); /* Gradient color */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Text color will be filled by the gradient */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  font-family: 'Arial', sans-serif; /* Custom font */
+  padding: 20px;
+  margin: -30px 0px 200px 0px;
+  /* Top: -30px, Right: 0px, Bottom: 200px, Left: 0px */
+  
+}
+
+/* Container that holds the heading and images */
+.dashboard-container {
+  display: flex;
+  align-items: center;  /* Align items vertically */
+  justify-content: flex-start; /* Align items horizontally (e.g., 'center', 'flex-end') */
+  margin-top: -180px; /* Move the entire group down */
+  margin-left: 500px; /* Move the entire group to the right */
+}
+
+
+.school-img1 {
+  width: 45%;
+  /* height: 50%; */
+  margin-right: 390px; /* Adds space between first and second images */
+  margin-top: 15px; /* Moves the first image down */
+}
+
+.school-logo-img1 {
+  /* margin-right: 30px; */
+  margin-left: -130px;
+  margin-top: 5px; /* Moves the second image down */
+}
+
+
+
+
+

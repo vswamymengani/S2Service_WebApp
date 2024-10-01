@@ -1,0 +1,42 @@
+/* Container for the school logo */
+.school-logo {
+    display: flex;
+    justify-content: center; /* Center the logo horizontally */
+    align-items: center;     /* Center the logo vertically if needed */
+    padding: 20px;           /* Optional padding around the logo */
+    margin-top: 400px;        /* Space above the logo */
+  }
+  
+  /* Style for the school logo image */
+  .school-logo-img2 {
+    width: 260px;            /* Set the width of the logo */
+    height: auto;            /* Maintain aspect ratio */
+  }
+  
+  .school-logo-img2:hover {
+    transform: scale(1.05);  /* Slightly enlarge the logo on hover */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .school-logo {
+      margin-top: 15px;      /* Adjust spacing for smaller screens */
+      padding: 15px;
+    }
+  
+    .school-logo-img2 {
+      width: 120px;          /* Reduce logo size on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .school-logo {
+      margin-top: 10px;      /* Further adjust spacing */
+      padding: 10px;
+    }
+  
+    .school-logo-img2 {
+      width: 100px;          /* Further reduce logo size on very small screens */
+    }
+  }
+  

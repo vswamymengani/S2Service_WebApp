@@ -1,0 +1,131 @@
+/* Container to center the entire login form */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  background-color: rgb(137, 153, 99); /* Background color */
+  padding: 50px 150px 50px 150px; /* Horizontal padding */
+}
+
+/* Logo styling */
+.logo {
+  width: 300px; /* Fixed width for the logo */
+  margin-bottom: 20px; /* Space between logo and form */
+}
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    height: auto; /* Allow height to adjust based on content for smaller screens */
+    padding: 30px 50px 40px 50px; /* Adjust padding for tablets */
+  }
+
+  .logo {
+    width: 90%; /* Increase width for the logo on smaller screens */
+    max-width: 250px; /* Optional: Further reduce max-width for very small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px 20px 30px 20px; /* Adjust padding for mobile */
+  }
+
+  .logo {
+    width: 95%; /* Full width for very small screens */
+    max-width: 200px; /* Optional: Reduce max-width even more */
+  }
+}
+
+/* Inner container for form and its elements */
+.login-inner-container {
+  width: 90%; /* Full width of the parent container */
+  max-width: 500px; /* Maximum width for the form container */
+  background-color: white; /* Background color for form */
+  padding: 30px 20px 30px 20px; /* Top, Right, Bottom, Left */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for effect */
+}
+
+/* Header title styles */
+.header-title {
+  font-size: 2rem; /* Font size for header */
+  font-weight: bold; /* Bold header */
+  color: #344055; /* Header color */
+  text-align: center; /* Centered header */
+  margin-bottom: 20px; /* Space below header */
+}
+
+/* Form container to align labels and inputs vertically */
+.form-container {
+  width: 100%; /* Full width of the parent container */
+  margin-bottom: 20px; /* Space below form */
+  background-color: aquamarine; /* Background color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 0px; /* Padding for form */
+}
+
+/* Each input styling */
+.input {
+  width: 80%; /* Width of input fields */
+  padding: 15px; /* Padding inside input */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #ccc; /* Border color */
+  margin-bottom: 15px; /* Space below each input */
+}
+
+/* Login button styling */
+.login-button {
+  width: 80%; /* Width of the login button */
+  padding: 15px; /* Padding inside button */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #007BFF; /* Background color */
+  color: #fff; /* Text color */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-bottom: 20px; /* Space below button */
+}
+
+.login-button:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .login-inner-container {
+    padding: 25px 15px 25px 15px; 
+  }
+
+  
+
+  .header-title {
+    font-size: 1.75rem; /* Slightly smaller font size */
+  }
+
+  .input {
+    width: 90%; /* Increase width of input fields on smaller screens */
+  }
+
+  .login-button {
+    width: 90%; /* Increase width of the button on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-inner-container {
+    padding: 20px 10px 20px 10px; /* Top, Right, Bottom, Left for small screens */
+  }
+
+  .header-title {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+  }
+
+  .input {
+    width: 85%; /* Full width for input fields on very small screens */
+  }
+
+  .login-button {
+    width: 95%; /* Full width for button on very small screens */
+  }
+}
