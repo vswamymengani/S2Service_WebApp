@@ -30,16 +30,17 @@ const Home = () => {
     navigate('/Login');
   };
 
-  const handleStudentClick = () => {
-    navigate('/student');
+  const handleCustomerClick = () => {
+    navigate('/customers'); // Navigate to the Customers component
   };
+  
 
   const handleTeacherClick = () => {
     navigate('/teacher');
   };
 
-  const handleCalendarClick = () => {
-    navigate('/calendar');
+  const handleServicesClick= () => {
+    navigate('/Services');
   };
 
   const handleTimeTableClick = () => {
@@ -63,14 +64,11 @@ const Home = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3000/studentCount')
+    axios.get('http://localhost:3000/s2customer')
       .then(response => setStudentCount(response.data.Student_Count))
       .catch(error => console.error('Error fetching student count:', error));
 
-    axios.get('http://localhost:3000/teacherCount')
-      .then(response => setTeacherCount(response.data.Teacher_Count))
-      .catch(error => console.error('Error fetching teacher count:', error));
-  }, []);
+ }, []);
 
   return (
     <div className="dashboard-wrapper">
@@ -93,7 +91,7 @@ const Home = () => {
 
 
       <div className="card-grid">
-        <div className="dashboard-card" onClick={handleStudentClick}>
+        <div className="dashboard-card" onClick={handleCustomerClick}>
           <img src={img1} alt="Students" className="dashboard-img" />
           <h3>Customers</h3>
         </div>
@@ -101,7 +99,7 @@ const Home = () => {
           <img src={img2} alt="Teachers" className="dashboard-img" />
           <h3>Technicians</h3>
         </div>
-        <div className="dashboard-card" onClick={handleCalendarClick}>
+        <div className="dashboard-card" onClick={handleServicesClick}>
           <img src={img3} alt="Calendar" className="dashboard-img" />
           <h3>Services</h3>
         </div>

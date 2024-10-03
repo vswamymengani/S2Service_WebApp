@@ -67,7 +67,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="school-logo">
+      <div className="school-logo1">
         <img src={sclimg1} alt="School Logo" className="school-logo-img2" />
       </div>
     </div>

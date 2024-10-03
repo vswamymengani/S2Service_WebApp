@@ -1,0 +1,83 @@
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Wrapper for the Customers component */
+  .customers-wrapper {
+    position: relative;
+    padding: 0px;
+  }
+  
+  /* Centered title styling */
+  .customers-title {
+    text-align: center;
+    font-size: 3.5rem; /* Adjusted font size */
+    font-weight: bold;
+    color: #1e90ff; /* Fallback color */
+    background: linear-gradient(to right, #ff6347, #1e90ff); /* Gradient color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Text color filled by gradient */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    padding: 0px;
+    margin-top: -30px;
+  }
+  
+  /* Container holding the logo images */
+  .customers-images-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px; /* Adds space below the images */
+  }
+  
+  /* School logo styles */
+  .school-logo {
+    width: 40%;
+    margin-right: 10px; /* Space between the two images */
+  }
+  
+  
+  
+  /* Container for the single customer card */
+  .customers-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  /* Single customer card styling */
+  .customers-card {
+    background-color: aqua;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 300px;
+  }
+  
+  .customers-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Image within the card */
+  .customers-img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  /* Card title styling */
+  .customers-card-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  

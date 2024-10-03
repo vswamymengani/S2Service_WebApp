@@ -1,0 +1,119 @@
+.student-register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 20px;
+  }
+  
+  .student-register-form {
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    
+   
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .student-register-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .student-form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .student-form-group {
+    width: 48%;
+  }
+  
+  .student-form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .student-form-group input,
+  .student-form-group select,
+  .student-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .student-form-group textarea {
+    resize: vertical;
+  }
+  
+  
+  .student-profile-picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px; /* Adds space between the image and the upload field */
+  }
+  
+  .student-profile-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Smaller height */
+    width: 80px;  /* Smaller width */
+    border-radius: 50%; /* Ensures the image stays circular */
+    overflow: hidden;
+    border: 2px solid #4caf50; /* Optional: Add a border for visibility */
+  }
+  
+  .student-profile-picture img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .student-profile-picture-label {
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #4caf50;
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+  }
+  
+  .student-form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Add space between fields */
+  }
+  
+  .upload-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .upload-field label {
+    margin-bottom: 5px;
+  }
+  
+  .upload-field input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .required {
+    color: red;
+  }
+  
+  

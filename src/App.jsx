@@ -4,6 +4,10 @@ import './App.css';
 import Login from './Components/Login'; // Import the Login component
 import Home from './Components/Home'; // Import the Home component
 import Sidebar from './Components/Sidebar'; // Import the Sidebar component
+import Customers from './Components/Customers/Customers';
+import Services from './Services/Services';
+import Sd from './Services/Sd';
+import Register from './Services/Register';
 
 function SidebarWrapper({ children }) {
   const location = useLocation();
@@ -32,6 +36,10 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Home" element={<Home />} />
+            <Route path="/Customers" element={<Customers />} />
+            <Route path="/Services" element={<Services />} />
+            <Route path="/Sd" element={<Sd />} />
+            <Route path="/Register" element={<Register/>} />
             {/* Add other routes as needed */}
           </Routes>
         </SidebarWrapper>
