@@ -1,0 +1,50 @@
+.tr-form-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .tr-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .tr-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .tr-form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .tr-form-group input,
+  .tr-form-group select,
+  .tr-form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .tr-form-group .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .tr-form-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .tr-form-submit:hover {
+    background-color: #45a049;
+  }
+  

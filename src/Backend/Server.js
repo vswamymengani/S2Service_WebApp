@@ -81,7 +81,22 @@ app.get('/ServicesDetails', (req, res) => {
     }
   });
 });
-    
+   
+// Define a GET endpoint to retrieve data from the s2services table
+app.get('/Details', (req, res) => {
+  const query = 'SELECT * FROM s2technician';
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).json({ error: 'Failed to fetch data from s2services' });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+
 
 // Start the server
 app.listen(PORT, () => {

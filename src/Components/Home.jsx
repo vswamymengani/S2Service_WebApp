@@ -35,8 +35,8 @@ const Home = () => {
   };
   
 
-  const handleTeacherClick = () => {
-    navigate('/teacher');
+  const handleTechniciansClick = () => {
+    navigate('/Technicians');
   };
 
   const handleServicesClick= () => {
@@ -95,7 +95,7 @@ const Home = () => {
           <img src={img1} alt="Students" className="dashboard-img" />
           <h3>Customers</h3>
         </div>
-        <div className="dashboard-card" onClick={handleTeacherClick}>
+        <div className="dashboard-card" onClick={handleTechniciansClick}>
           <img src={img2} alt="Teachers" className="dashboard-img" />
           <h3>Technicians</h3>
         </div>

@@ -1,30 +1,24 @@
-/* Base styles */
-body {
-    font-family: 'Arial', sans-serif;
-  }
-  
-  /* Wrapper for the Customers component */
-  .customers-wrapper {
+/* Wrapper for the Technicians component */
+.technicians-wrapper {
     position: relative;
     padding: 0px;
   }
   
   /* Centered title styling */
-  .customers-title {
+  .technicians-title {
     text-align: center;
-    font-size: 3.5rem; /* Adjusted font size */
+    font-size: 3.5rem;
     font-weight: bold;
     color: #1e90ff; /* Fallback color */
     background: linear-gradient(to right, #ff6347, #1e90ff); /* Gradient color */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Text color filled by gradient */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    padding: 0px;
     margin-top: -30px;
   }
   
   /* Container holding the logo images */
-  .customers-images-container {
+  .technicians-images-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,24 +26,22 @@ body {
   }
   
   /* School logo styles */
-  .school-logo {
-    width: 40%;
+  .technicians-logo {
+    width: 30%;
     margin-right: 10px; /* Space between the two images */
   }
   
-  
-  
-  /* Container for the single customer card */
-  .customers-card-container {
+  /* Container for technician cards */
+  .technicians-card-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    gap: 20px;
+    gap: 20px; /* Adds a gap of 20px between the cards */
   }
   
-  /* Single customer card styling */
-  .customers-card {
+  /* Single technician card styling */
+  .technicians-card {
     background-color: aqua;
     padding: 30px;
     border-radius: 15px;
@@ -63,20 +55,20 @@ body {
     width: 300px;
   }
   
-  .customers-card:hover {
+  .technicians-card:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
   }
   
   /* Image within the card */
-  .customers-img {
+  .technicians-img {
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
   }
   
   /* Card title styling */
-  .customers-card-title {
+  .technicians-card-title {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 500;

@@ -8,6 +8,10 @@ import Customers from './Components/Customers/Customers';
 import Services from './Services/Services';
 import Sd from './Services/Sd';
 import Register from './Services/Register';
+import Technicians from './Technicians/Technicians';
+import Tr from './Technicians/Tr';
+import Td from './Technicians/Td';
+
 
 function SidebarWrapper({ children }) {
   const location = useLocation();
@@ -40,6 +44,9 @@ function App() {
             <Route path="/Services" element={<Services />} />
             <Route path="/Sd" element={<Sd />} />
             <Route path="/Register" element={<Register/>} />
+            <Route path="/Technicians" element={<Technicians/>} />
+            <Route path="/Tr" element={<Tr/>} />
+            <Route path="/Td" element={<Td/>} />
             {/* Add other routes as needed */}
           </Routes>
         </SidebarWrapper>
