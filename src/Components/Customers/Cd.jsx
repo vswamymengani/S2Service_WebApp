@@ -1,55 +1,54 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Td.css';
+import './Cd.css';
 
-const Td = () => {
+const Cd = () => {
   const navigate = useNavigate();
-  const [techniciansDetails, setTechniciansDetails] = useState([]);
+  const [customerDetails, setCustomerDetails] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    const fetchTechniciansDetails = async () => {
+    const fetchCustomerDetails = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/gettechnicians');
-
-        setTechniciansDetails(response.data);
+        const response = await axios.get('http://localhost:3000/CustomerDetails');
+        setCustomerDetails(response.data);
       } catch (err) {
-        setErrors({ general: 'Failed to load technician details' });
+        setErrors({ general: 'Failed to load customer details' });
       }
     };
-    fetchTechniciansDetails();
+    fetchCustomerDetails();
   }, []);
 
-  const filteredTechniciansDetails = techniciansDetails.filter(item =>
+  const filteredCustomerDetails = customerDetails.filter(item =>
     item.sid.toString().includes(searchText)
   );
 
   return (
-    <div className="td-container">
-      <div className="td-button-group">
-        <button className="td-btn td-register-btn" onClick={() => navigate('/Register')}>
+    <div className="cd-container">
+      <div className="cd-button-group">
+        <button className="cd-btn cd-register-btn" onClick={() => navigate('/Register')}>
           Register
         </button>
-        <button className="td-btn td-modify-btn" onClick={() => navigate('/modify')}>
+        <button className="cd-btn cd-modify-btn" onClick={() => navigate('/Modify')}>
           Modify
         </button>
       </div>
 
-      <div className="td-search-bar">
+      <div className="cd-search-bar">
         <input
           type="text"
-          placeholder="Search by Technician ID"
-          className="td-search-input"
+          placeholder="Search by Customer ID"
+          className="cd-search-input"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
       </div>
 
-      <div className="td-table-container">
-        {errors.general && <p className="td-error">{errors.general}</p>}
-        <table className="td-technician-table">
+      <div className="cd-table-container">
+        {errors.general && <p className="cd-error">{errors.general}</p>}
+        <table className="cd-customer-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -58,15 +57,14 @@ const Td = () => {
               <th>Email</th>
               <th>Mobile</th>
               <th>Present Address</th>
-              <th>Work Experience</th>
               <th>Password</th>
               <th>Confirm Password</th>
               <th>Created At</th>
             </tr>
           </thead>
           <tbody>
-            {filteredTechniciansDetails.length > 0 ? (
-              filteredTechniciansDetails.map((item) => (
+            {filteredCustomerDetails.length > 0 ? (
+              filteredCustomerDetails.map((item) => (
                 <tr key={item.sid}>
                   <td>{item.id}</td>
                   <td>{item.fullname}</td>
@@ -74,15 +72,14 @@ const Td = () => {
                   <td>{item.email}</td>
                   <td>{item.mobile}</td>
                   <td>{item.presentaddress}</td>
-                  <td>{item.workExperience}</td>
                   <td>{item.password}</td>
                   <td>{item.confirmpassword}</td>
-                  <td>{item.created_at}</td>
+                  <td>{new Date(item.created_at).toLocaleDateString()}</td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="10" className="td-no-data">No technician details found</td>
+                <td colSpan="9" className="cd-no-data">No customer details found</td>
               </tr>
             )}
           </tbody>
@@ -92,4 +89,4 @@ const Td = () => {
   );
 };
 
-export default Td;
+export default Cd;

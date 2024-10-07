@@ -68,6 +68,19 @@ app.post('/s2admin', (req, res) => {
   });
 });
 
+// Define the GET API for fetching customer details
+app.get('/CustomerDetails', (req, res) => {
+  const query = 'SELECT id, fullname, gender, email, mobile, presentaddress, password, confirmpassword, created_at FROM s2customer';
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching customer details:', err);
+      return res.status(500).json({ error: 'Failed to fetch customer details' });
+    }
+    res.json(results);
+  });
+});
+
 // Define a GET endpoint to retrieve data from the s2services table
 app.get('/ServicesDetails', (req, res) => {
   const query = 'SELECT * FROM s2services';
@@ -83,16 +96,16 @@ app.get('/ServicesDetails', (req, res) => {
 });
    
 // Define a GET endpoint to retrieve data from the s2services table
-app.get('/Details', (req, res) => {
-  const query = 'SELECT * FROM s2technician';
+app.get('/gettechnicians', (req, res) => {
+  const sql = 'SELECT * FROM s2technician';
 
-  db.query(query, (err, results) => {
+  db.query(sql, (err, results) => {
     if (err) {
-      console.error('Error executing query:', err);
-      res.status(500).json({ error: 'Failed to fetch data from s2services' });
-    } else {
-      res.json(results);
+      console.error('Error fetching technicians:', err);
+      return res.json({ message: 'Something unexpected has occurred' });
     }
+
+    return res.json(results);
   });
 });
 

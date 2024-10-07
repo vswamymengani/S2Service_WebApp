@@ -11,6 +11,12 @@ import Register from './Services/Register';
 import Technicians from './Technicians/Technicians';
 import Tr from './Technicians/Tr';
 import Td from './Technicians/Td';
+import Offers from './Offers/Offers'
+import Images from './Images/Images';
+import Cd from './Components/Customers/Cd';
+import Od from './Offers/Od';
+import Events from './Images/Events';
+import ServiceModify from './Services/ServiceModify';
 
 
 function SidebarWrapper({ children }) {
@@ -47,6 +53,13 @@ function App() {
             <Route path="/Technicians" element={<Technicians/>} />
             <Route path="/Tr" element={<Tr/>} />
             <Route path="/Td" element={<Td/>} />
+            <Route path="/Offers" element={<Offers/>} />
+            <Route path="/Images" element={<Images/>} />
+            <Route path="/Cd" element={<Cd/>} />
+            <Route path="/Od" element={<Od/>} />
+            <Route path="/Events" element={<Events/>} />
+            <Route path="/ServiceModify" element={<ServiceModify/>} />
+
             {/* Add other routes as needed */}
           </Routes>
         </SidebarWrapper>

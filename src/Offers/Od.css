@@ -1,0 +1,113 @@
+/* Container for the Offers Details component */
+.od-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Button Group */
+  .od-button-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .od-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 50px; /* Increased button height */
+    flex-grow: 1; /* Ensures buttons grow equally to fill the available space */
+  }
+  
+  .od-register-btn {
+    background-color: #4caf50;
+    color: white;
+    width: 100px;
+  }
+  
+  .od-modify-btn {
+    background-color: #2196f3;
+    color: white;
+    width: 250px;
+  }
+  
+  /* Search Bar */
+  .od-search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .od-search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Table Styling */
+  .od-table-container {
+    overflow-x: auto;
+  }
+  
+  .od-offers-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .od-offers-table th, 
+  .od-offers-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .od-offers-table th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Offer Image Styling */
+  .od-offer-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  /* Error Message */
+  .od-error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* No Data Message */
+  .od-no-data {
+    text-align: center;
+    font-style: italic;
+    padding: 20px;
+    color: #999;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 600px) {
+    .od-btn {
+      font-size: 14px;
+      padding: 8px 15px;
+      height: 45px; /* Reduced button height for smaller screens */
+    }
+  
+    .od-offers-table th, 
+    .od-offers-table td {
+      padding: 8px;
+    }
+  
+    .od-offer-image {
+      width: 40px;
+      height: 40px; /* Reduced image size for smaller screens */
+    }
+  }
+  

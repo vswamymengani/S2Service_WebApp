@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import './CustomerRegister.css'; // Updated CSS filename
+import './Register.css'; // Renamed CSS file
 
 const CustomerRegister = () => {
   const [formData, setFormData] = useState({
@@ -262,11 +262,10 @@ const CustomerRegister = () => {
           <div className="customer-form-group">
             <label>Father's Mobile No <span className="required">*</span></label>
             <input
-              type="tel"
+              type="text"
               name="fatherNo"
               value={formData.fatherNo}
               onChange={handleChange}
-              maxLength={10}
             />
             {errors.fatherNo && <span className="error">{errors.fatherNo}</span>}
           </div>
@@ -285,11 +284,10 @@ const CustomerRegister = () => {
           <div className="customer-form-group">
             <label>Mother's Mobile No <span className="required">*</span></label>
             <input
-              type="tel"
+              type="text"
               name="motherNo"
               value={formData.motherNo}
               onChange={handleChange}
-              maxLength={10}
             />
             {errors.motherNo && <span className="error">{errors.motherNo}</span>}
           </div>
@@ -309,8 +307,7 @@ const CustomerRegister = () => {
 
           <div className="customer-form-group">
             <label>Present Address <span className="required">*</span></label>
-            <input
-              type="text"
+            <textarea
               name="presentAddress"
               value={formData.presentAddress}
               onChange={handleChange}
@@ -319,8 +316,10 @@ const CustomerRegister = () => {
           </div>
         </div>
 
-        <button type="submit" className="register-button">Register</button>
-        <button type="button" className="refresh-button" onClick={handleRefresh}>Refresh</button>
+        <div className="button-group">
+          <button type="submit">Register</button>
+          <button type="button" onClick={handleRefresh}>Refresh</button>
+        </div>
       </form>
     </div>
   );

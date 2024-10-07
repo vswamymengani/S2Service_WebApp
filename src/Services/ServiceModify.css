@@ -1,0 +1,70 @@
+/* CSS for the ServiceModify Component */
+.service-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .service-form-content {
+    background-color: #597188; /* White background for the form */
+    border-radius: 10px;
+    padding: 30px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for the form container */
+  }
+  
+  /* Container for centering the form on the page */
+  .service-form-input-group {
+    display: flex;               /* Use flexbox for layout */
+    flex-direction: column;      /* Arrange children in a column */
+    justify-content: center;     /* Center the group vertically */
+    align-items: center;         /* Center items horizontally */
+    margin: 20px auto;           /* Margin for spacing */
+  }
+  
+  /* Styles for the input field */
+  .service-input {
+    height: 40px;
+    padding: 0 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners for input fields */
+    font-size: 16px; /* Font size for input text */
+  }
+  
+  /* Error message styling */
+  .service-error {
+    color: red; /* Red color for error messages */
+    font-size: 12px; /* Font size for error messages */
+  }
+  
+  /* Button styling */
+  .service-button {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+  }
+  
+  /* Button hover effect */
+  .service-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  /* Styles for the grid layout */
+  .service-grid {
+    display: grid; /* Use grid for layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 20px; /* Gap between grid items */
+  }
+  
+  /* Container for the modify button */
+  .service-button-container {
+    text-align: center; /* Center the modify button */
+  }
+  

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import img1 from './tech-support (1).png';
+import img1 from './technology (1).png';
+import img2 from '../assets/technicom (1).png'
+import img3 from './tech-support (1).png'
 import logoImg from '../assets/slogo.png';
 import './Technicians.css'; // Updated CSS file name
 
@@ -48,13 +50,13 @@ const Technicians = () => {
 
         {/* New Card for New Feature */}
         <div className="technicians-card" onClick={handleNewFeatureClick}>
-          <img src={img1} alt="New Feature" className="technicians-img" />
+          <img src={img2} alt="New Feature" className="technicians-img" />
           <h3 className="technicians-card-title">Technician Compliants</h3>
         </div>
 
         {/* New Card for Technicians Bookings */}
         <div className="technicians-card" onClick={handleBookingsClick}>
-          <img src={img1} alt="Technicians Bookings" className="technicians-img" />
+          <img src={img3} alt="Technicians Bookings" className="technicians-img" />
           <h3 className="technicians-card-title">Technician Bookings</h3>
         </div>
       </div>

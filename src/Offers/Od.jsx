@@ -1,54 +1,54 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Sd.css';
+import './Od.css';
 
-const Sd = () => {
+const Od = () => {
   const navigate = useNavigate();
-  const [ServicesDetails, setServicesDetails] = useState([]);
+  const [offersDetails, setOffersDetails] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    const fetchServicesDetails = async () => {
+    const fetchOffersDetails = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/ServicesDetails');
-        setServicesDetails(response.data);
+        const response = await axios.get('http://localhost:3000/OffersDetails');
+        setOffersDetails(response.data);
       } catch (err) {
-        setErrors({ general: 'Failed to load student details' });
+        setErrors({ general: 'Failed to load offers details' });
       }
     };
-    fetchServicesDetails();
+    fetchOffersDetails();
   }, []);
 
-  const filteredServicesDetails = ServicesDetails.filter(item =>
+  const filteredOffersDetails = offersDetails.filter(item =>
     item.sid.toString().includes(searchText)
   );
 
   return (
-    <div className="sd-container">
-      <div className="sd-button-group">
-        <button className="sd-btn sd-register-btn" onClick={() => navigate('/Register')}>
+    <div className="od-container">
+      <div className="od-button-group">
+        <button className="od-btn od-register-btn" onClick={() => navigate('/Register')}>
           Register
         </button>
-        <button className="sd-btn sd-modify-btn" onClick={() => navigate('/ServiceModify')}>
+        <button className="od-btn od-modify-btn" onClick={() => navigate('/Modify')}>
           Modify
         </button>
       </div>
 
-      <div className="sd-search-bar">
+      <div className="od-search-bar">
         <input
           type="text"
-          placeholder="Search by Student ID"
-          className="sd-search-input"
+          placeholder="Search by Offer ID"
+          className="od-search-input"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
       </div>
 
-      <div className="sd-table-container">
-        {errors.general && <p className="sd-error">{errors.general}</p>}
-        <table className="sd-student-table">
+      <div className="od-table-container">
+        {errors.general && <p className="od-error">{errors.general}</p>}
+        <table className="od-offers-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -60,20 +60,22 @@ const Sd = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredServicesDetails.length > 0 ? (
-              filteredServicesDetails.map((item) => (
+            {filteredOffersDetails.length > 0 ? (
+              filteredOffersDetails.map((item) => (
                 <tr key={item.sid}>
                   <td>{item.id}</td>
                   <td>{item.name}</td>
                   <td>{item.category}</td>
-                  <td><img src={item.image} alt={item.name} className="sd-student-image" /></td>
+                  <td>
+                    <img src={item.image} alt={item.name} className="od-offer-image" />
+                  </td>
                   <td>{item.screen}</td>
                   <td>{item.sid}</td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="6" className="sd-no-data">No student details found</td>
+                <td colSpan="6" className="od-no-data">No offer details found</td>
               </tr>
             )}
           </tbody>
@@ -83,4 +85,4 @@ const Sd = () => {
   );
 };
 
-export default Sd;
+export default Od;

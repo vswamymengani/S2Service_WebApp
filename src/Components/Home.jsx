@@ -43,12 +43,12 @@ const Home = () => {
     navigate('/Services');
   };
 
-  const handleTimeTableClick = () => {
-    navigate('/timetable');
+  const handleOffersClick = () => {
+    navigate('/Offers');
   };
 
-  const handleAdminLibraryClick = () => {
-    navigate('/AdminLibrary');
+  const handleImagesClick = () => {
+    navigate('/Images');
   };
 
   const handleEventsClick = () => {
@@ -103,11 +103,11 @@ const Home = () => {
           <img src={img3} alt="Calendar" className="dashboard-img" />
           <h3>Services</h3>
         </div>
-        <div className="dashboard-card" onClick={handleTimeTableClick}>
+        <div className="dashboard-card" onClick={handleOffersClick}>
           <img src={img4} alt="Timetable" className="dashboard-img" />
           <h3>Offers</h3>
         </div>
-        <div className="dashboard-card" onClick={handleAdminLibraryClick}>
+        <div className="dashboard-card" onClick={handleImagesClick}>
           <img src={img5} alt="Library" className="dashboard-img" />
           <h3>Images</h3>
         </div>

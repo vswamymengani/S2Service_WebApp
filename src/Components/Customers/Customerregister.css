@@ -1,0 +1,109 @@
+.customer-register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .customer-register-form {
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customer-register-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .customer-form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Add space between fields */
+  }
+  
+  .customer-form-group {
+    width: 48%;
+  }
+  
+  .customer-form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .customer-form-group input,
+  .customer-form-group select,
+  .customer-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .customer-form-group textarea {
+    resize: vertical;
+  }
+  
+  .customer-profile-picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px; /* Adds space between the image and the upload field */
+  }
+  
+  .customer-profile-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Smaller height */
+    width: 80px;  /* Smaller width */
+    border-radius: 50%; /* Ensures the image stays circular */
+    overflow: hidden;
+    border: 2px solid #4caf50; /* Optional: Add a border for visibility */
+  }
+  
+  .customer-profile-picture img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .customer-profile-picture-label {
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #4caf50;
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+  }
+  
+  .upload-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .upload-field label {
+    margin-bottom: 5px;
+  }
+  
+  .upload-field input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .required {
+    color: red;
+  }
+  

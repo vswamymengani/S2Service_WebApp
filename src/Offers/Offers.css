@@ -1,0 +1,82 @@
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Wrapper for the Offers component */
+  .offers-wrapper {
+    position: relative;
+    padding: 0px;
+  }
+  
+  /* Centered title styling */
+  .offers-title {
+    text-align: center;
+    font-size: 3.5rem; /* Adjusted font size */
+    font-weight: bold;
+    color: #ff7f50; /* Fallback color */
+    background: linear-gradient(to right, #ff6347, #ff7f50); /* Gradient color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Text color filled by gradient */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    padding: 0px;
+    margin-top: -30px;
+  }
+  
+  /* Container holding the logo images */
+  .offers-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px; /* Adds space below the images */
+  }
+  
+  /* Offer logo styles */
+  .offer-logo {
+    width: 40%;
+    margin-right: 10px; /* Space between the two images */
+  }
+  
+  /* Container for the offer cards */
+  .offers-card-container {
+    display: flex; /* Flex layout for side-by-side alignment */
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px; /* Spacing between cards */
+  }
+  
+  /* Single offer card styling */
+  .offers-card {
+    background-color: aqua;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 300px;
+  }
+  
+  .offers-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Image within the card */
+  .offers-img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  /* Card title styling */
+  .offers-card-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
