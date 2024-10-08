@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import './CustomerRegister.css'; // Updated CSS filename
+import './Services.css'; // Updated CSS filename
 
 const CustomerRegister = () => {
   const [formData, setFormData] = useState({

@@ -17,6 +17,7 @@ import Cd from './Components/Customers/Cd';
 import Od from './Offers/Od';
 import Events from './Images/Events';
 import ServiceModify from './Services/ServiceModify';
+import Customerregister from './Components/Customers/Customerregister';
 
 
 function SidebarWrapper({ children }) {
@@ -59,6 +60,7 @@ function App() {
             <Route path="/Od" element={<Od/>} />
             <Route path="/Events" element={<Events/>} />
             <Route path="/ServiceModify" element={<ServiceModify/>} />
+            <Route path="/Customerregister" element={<Customerregister/>} />
 
             {/* Add other routes as needed */}
           </Routes>

@@ -81,7 +81,33 @@ app.get('/ServicesDetails', (req, res) => {
     }
   });
 });
-    
+
+
+// GET route to fetch all customer details from the `s2customer` table
+app.get('/CustomerDetails', (req, res) => {
+  const query = 'SELECT * FROM s2customer';
+  
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({ message: 'Server error while fetching customer details.' });
+    }
+
+    // Send back the customer details
+    res.status(200).json(results);
+  });
+});
+// API endpoint to get all technician details
+app.get('/gettechnicians', (req, res) => {
+  const query = 'SELECT * FROM s2technician';
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching technician details:', err.message);
+      return res.status(500).json({ error: 'Failed to load technician details' });
+    }
+    res.json(results);
+  });
+});
 
 // Start the server
 app.listen(PORT, () => {
