@@ -97,6 +97,23 @@ app.get('/CustomerDetails', (req, res) => {
     res.status(200).json(results);
   });
 });
+
+// GET route to fetch the count of customers from the `s2customer` table
+app.get('/CustomerCount', (req, res) => {
+  const query = 'SELECT COUNT(*) AS customerCount FROM s2customer';
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({ message: 'Server error while fetching customer count.' });
+    }
+
+    // Send back the customer count
+    res.status(200).json(results[0]); // results[0] will contain the `customerCount` property
+  });
+});
+
+
 // API endpoint to get all technician details
 app.get('/gettechnicians', (req, res) => {
   const query = 'SELECT * FROM s2technician';
@@ -108,6 +125,22 @@ app.get('/gettechnicians', (req, res) => {
     res.json(results);
   });
 });
+
+// GET route to fetch the count of customers from the `s2customer` table
+app.get('/TechniciansCount', (req, res) => {
+  const query = 'SELECT COUNT(*) AS technicianCount FROM s2technician';
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({ message: 'Server error while fetching customer count.' });
+    }
+
+    // Send back the customer count
+    res.status(200).json(results[0]); // results[0] will contain the `customerCount` property
+  });
+});
+
 
 // Start the server
 app.listen(PORT, () => {

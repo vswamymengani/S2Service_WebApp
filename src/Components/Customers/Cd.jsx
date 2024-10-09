@@ -30,15 +30,7 @@ const Cd = () => {
 
   return (
     <div className="cd-container">
-      {/* Button Group for Navigation */}
-      <div className="cd-button-group">
-        <button className="cd-btn cd-register-btn" onClick={() => navigate('/Register')}>
-          Register
-        </button>
-        <button className="cd-btn cd-modify-btn" onClick={() => navigate('/Modify')}>
-          Modify
-        </button>
-      </div>
+      
 
       {/* Search Bar */}
       <div className="cd-search-bar">

@@ -1,62 +1,76 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import img1 from './technology (1).png';
-import img2 from '../assets/technicom (1).png'
-import img3 from './tech-support (1).png'
-import logoImg from '../assets/slogo.png';
-import './Technicians.css'; // Updated CSS file name
+import img1 from './technology (1).png'; // Technician Details image
+import img2 from '../assets/technicom (1).png'; // Technician Complaints image
+import img3 from './tech-support (1).png'; // Technician Bookings image
+import logoImg from '../assets/slogo.png'; // School logo image
+import './Technicians.css'; // CSS file for the Technicians component
 
 const Technicians = () => {
+  // State to store the technician count
   const [technicianCount, setTechnicianCount] = useState(0);
   const navigate = useNavigate();
 
-  // Handler function for navigating to the technician component
+  // Fetch the technician count from the API when the component mounts
+  useEffect(() => {
+    const fetchTechnicianCount = async () => {
+      try {
+        // API call to get the technician count
+        const response = await axios.get('http://localhost:3000/TechniciansCount');
+        setTechnicianCount(response.data.technicianCount); // Set the technician count from the response
+      } catch (error) {
+        console.error('Error fetching technician count:', error);
+      }
+    };
+
+    fetchTechnicianCount(); // Call the function to fetch technician count
+  }, []);
+
+  // Handler functions for navigation
   const handleTechnicianClick = () => {
-    navigate('/Td'); // Updated navigation path
+    navigate('/Td'); // Navigate to Technician Details component
   };
 
   const handleNewFeatureClick = () => {
-    navigate('/new-feature'); // Updated navigation path for new feature
+    navigate('/technician-complaints'); // Navigate to Technician Complaints component
   };
 
   const handleBookingsClick = () => {
-    navigate('/technician-bookings'); // New navigation path for Technician Bookings
+    navigate('/technician-bookings'); // Navigate to Technician Bookings component
   };
-
-  useEffect(() => {
-    axios.get('http://localhost:3000/s2technician') // Update API endpoint if necessary
-      .then(response => setTechnicianCount(response.data.Technician_Count))
-      .catch(error => console.error('Error fetching technician count:', error));
-  }, []);
 
   return (
     <div className="technicians-wrapper">
-      {/* Centered title */}
+      {/* Centered title for the component */}
       <h1 className="technicians-title">Technicians</h1>
-      
-      {/* Container for school images */}
+
+
+      {/* Container for school logo */}
       <div className="technicians-images-container">
         <img src={logoImg} alt="School Logo" className="technicians-logo" />
       </div>
 
-      {/* Container for technician cards */}
+      {/* Container for the technician cards */}
       <div className="technicians-card-container">
-        {/* Existing card for Technician Bookings */}
+        {/* Card for Technician Details */}
         <div className="technicians-card" onClick={handleTechnicianClick}>
           <img src={img1} alt="Technicians" className="technicians-img" />
           <h3 className="technicians-card-title">Technician Details</h3>
+          
+      {/* Display the dynamic technician count */}
+      <h3 className="technicians-card-title">Total {technicianCount} Technicians</h3>
         </div>
 
-        {/* New Card for New Feature */}
+        {/* Card for Technician Complaints */}
         <div className="technicians-card" onClick={handleNewFeatureClick}>
-          <img src={img2} alt="New Feature" className="technicians-img" />
-          <h3 className="technicians-card-title">Technician Compliants</h3>
+          <img src={img2} alt="Technician Complaints" className="technicians-img" />
+          <h3 className="technicians-card-title">Technician Complaints</h3>
         </div>
 
-        {/* New Card for Technicians Bookings */}
+        {/* Card for Technician Bookings */}
         <div className="technicians-card" onClick={handleBookingsClick}>
-          <img src={img3} alt="Technicians Bookings" className="technicians-img" />
+          <img src={img3} alt="Technician Bookings" className="technicians-img" />
           <h3 className="technicians-card-title">Technician Bookings</h3>
         </div>
       </div>
