@@ -1,0 +1,110 @@
+/* Container for the form and services list */
+.service-form-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Form styling */
+  form {
+    margin-bottom: 20px;
+    display: grid;
+    grid-gap: 10px; /* Gap between form elements */
+  }
+  
+  /* Input fields and textarea */
+  form input,
+  form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* File inputs */
+  input[type="file"] {
+    padding: 5px;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  /* Services list */
+  .services-list {
+    margin-top: 20px;
+  
+  }
+  
+  /* Grid layout for service cards */
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px; /* Space between cards */
+  }
+  
+  /* Individual service card */
+  .service-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  /* Hover effect for cards */
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Image in the service card */
+  .service-image {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+  }
+  
+  /* Video in the service card */
+  .service-video {
+    margin-top: 10px;
+    max-width: 100%;
+    border-radius: 4px;
+  }
+  
+  /* Message paragraph */
+  p {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+  }
+  
+
+  .alert {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .alert.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+  }
+  
+  .alert.error {
+    background-color: #f2dede;
+    color: #a94442;
+  }
+  

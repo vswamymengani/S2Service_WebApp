@@ -18,7 +18,10 @@ import Od from './Offers/Od';
 import Events from './Images/Events';
 import ServiceModify from './Services/ServiceModify';
 import Customerregister from './Components/Customers/Customerregister';
-
+import Home1 from './Services/Home1';
+import S2sCategoriesForm from './Services/S2sCategoriesForm';
+import S2sServicesForm from './Services/S2sServicesForm';
+import S2sSubcategoriesForm from './Services/S2sSubcategoriesForm';
 
 function SidebarWrapper({ children }) {
   const location = useLocation();
@@ -61,6 +64,10 @@ function App() {
             <Route path="/Events" element={<Events/>} />
             <Route path="/ServiceModify" element={<ServiceModify/>} />
             <Route path="/Customerregister" element={<Customerregister/>} />
+            <Route path="/Home1" element={<Home1/>} />
+            <Route path="/S2sCategoriesForm" element={<S2sCategoriesForm/>} />
+            <Route path="/S2sServicesForm" element={<S2sServicesForm/>} />
+            <Route path="/S2sSubcategoriesForm" element={<S2sSubcategoriesForm/>} />
 
             {/* Add other routes as needed */}
           </Routes>

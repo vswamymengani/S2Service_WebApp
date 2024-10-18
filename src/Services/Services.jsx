@@ -16,7 +16,7 @@ const Services = () => {
   };
 
   const handleNewCardClick = () => {
-    navigate('/student');
+    navigate('/Home1');
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Services = () => {
         {/* New Card beside the existing one */}
         <div className="services-card" onClick={handleNewCardClick}>
           <img src={img2} alt="New Feature" className="services-img" />
-          <h3 className="services-card-title">Service Compliants</h3>
+          <h3 className="services-card-title">Adding New Service</h3>
         </div>
       </div>
     </div>
