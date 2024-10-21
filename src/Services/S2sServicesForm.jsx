@@ -144,7 +144,7 @@ const AddServiceForm = () => {
   };
 
   return (
-    <div className="service-form-container">
+    <div className="service-form-containerr">
       <h2>{editingServiceId ? 'Edit Service' : 'Add New Service'}</h2>
       <form onSubmit={editingServiceId ? handleUpdate : handleSubmit}>
         {/* Form Inputs */}
@@ -238,12 +238,12 @@ const AddServiceForm = () => {
       )}
 
       {/* Displaying the list of services */}
-      <div className="services-list">
+      <div className="services-listr">
         <h3>All Services</h3>
         {services.length > 0 ? (
-          <div className="card-container">
+          <div className="card-container09">
             {services.map((service) => (
-              <div key={service.id} className="service-card" onClick={() => handleEdit(service)}>
+              <div key={service.id} className="service-card09" onClick={() => handleEdit(service)}>
                 <h4>{service.servicename}</h4>
                 <p><strong>Price:</strong> ${service.price}</p>
                 <p><strong>Rating:</strong> {service.rating}</p>
@@ -257,7 +257,7 @@ const AddServiceForm = () => {
                   />
                 )}
                 {service.servicevideos && (
-                  <video className="service-video" width="200" controls>
+                  <video className="service-video09" width="200" controls>
                     <source src={service.servicevideos} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>

@@ -103,7 +103,7 @@ const S2sCategoriesForm = () => {
     };
 
     return (
-        <div className="s2s-container">
+        <div className="s2s-containerr">
             <form onSubmit={handleSubmit} className="s2s-form">
                 <label>
                     Category:
@@ -139,7 +139,7 @@ const S2sCategoriesForm = () => {
 
             {/* Display the fetched categories as cards */}
             <h2>Categories List</h2>
-            <div className="cards-container">
+            <div className="cards-containerr">
                 {categories.map((category) => (
                     <div className="category-card" key={category.id} onClick={() => handleCardClick(category)}>
                         <img src={category.subcategoryimage} alt={category.subcategory} className="category-image" />

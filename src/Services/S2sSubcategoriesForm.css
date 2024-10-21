@@ -1,8 +1,10 @@
-.form-container {
+.form-container00 {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: rgb(154, 185, 185);
+  
 }
 
 form {
@@ -38,14 +40,14 @@ form button:hover {
 
 
 
-.custom-card-grid {
+.custom-card-grid00{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
-.custom-card {
+.custom-card00{
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -54,26 +56,26 @@ form button:hover {
     transition: transform 0.3s ease;
 }
 
-.custom-card:hover {
+.custom-card00:hover {
     transform: scale(1.05);
 }
 
-.custom-card-image {
+.custom-card-image00 {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.custom-card-content {
+.custom-card-content00{
     padding: 15px;
 }
 
-.custom-card-content h4 {
+.custom-card-content00 h4 {
     margin: 0 0 10px;
     font-size: 18px;
 }
 
-.custom-card-content p {
+.custom-card-content00 p {
     margin: 0;
     color: #666;
 }

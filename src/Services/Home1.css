@@ -1,25 +1,26 @@
 /* src/Home.css */
-.home-container {
+.home-containerr{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Full height */
-    background-color: #f0f0f0; /* Light background */
+    width: 130vh;
+    height: 80vh; /* Full height */
+    background-color: #9cb053; /* Light background */
 }
 
 h1 {
     margin-bottom: 20px;
-    color: #333; /* Dark text color */
+    color: #3f199f; /* Dark text color */
 }
 
-.button-container {
+.button-containerr {
     display: flex;
     flex-direction: column;
     gap: 10px; /* Space between buttons */
 }
 
-.button {
+.buttonr{
     padding: 10px 20px;
     font-size: 16px;
     color: white;
@@ -31,6 +32,6 @@ h1 {
     transition: background-color 0.3s; /* Smooth transition */
 }
 
-.button:hover {
+.buttonr:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }

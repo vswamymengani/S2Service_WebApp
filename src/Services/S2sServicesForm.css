@@ -1,7 +1,9 @@
 /* Container for the form and services list */
-.service-form-container {
+.service-form-containerr {
     margin: 20px;
     font-family: Arial, sans-serif;
+    background-color: cyan;
+    width: 700px;
   }
   
   /* Form styling */
@@ -42,20 +44,20 @@
   }
   
   /* Services list */
-  .services-list {
+  .services-listr {
     margin-top: 20px;
   
   }
   
   /* Grid layout for service cards */
-  .card-container {
+  .card-container09 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 20px; /* Space between cards */
   }
   
   /* Individual service card */
-  .service-card {
+  .service-card09 {
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -65,7 +67,7 @@
   }
   
   /* Hover effect for cards */
-  .service-card:hover {
+  .service-card09:hover {
     transform: translateY(-5px);
   }
   
@@ -78,7 +80,7 @@
   }
   
   /* Video in the service card */
-  .service-video {
+  .service-video09{
     margin-top: 10px;
     max-width: 100%;
     border-radius: 4px;
