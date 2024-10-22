@@ -7,7 +7,8 @@ const S2sCategoriesForm = () => {
         id: '', // ID for updating existing categories
         category: '',
         subcategory: '',
-        subcategoryimage: ''
+        subcategoryimage: '',
+        sid: '' // Add sid field to the state
     });
     const [file, setFile] = useState(null);
     const [categories, setCategories] = useState([]); // State to store fetched categories
@@ -21,6 +22,7 @@ const S2sCategoriesForm = () => {
             setCategories(response.data);
         } catch (error) {
             console.error('Error fetching categories:', error);
+            setError('Failed to fetch categories.');
         }
     };
 
@@ -42,12 +44,19 @@ const S2sCategoriesForm = () => {
         event.preventDefault();
         setError(''); // Clear previous error
         setSuccess(''); // Clear previous success message
-
+    
         const uploadData = new FormData();
-        uploadData.append('subcategoryimage', file);
+        
+        if (file) {
+            uploadData.append('subcategoryimage', file); // Append new image if one is selected
+        } else if (formData.id) {
+            uploadData.append('subcategoryimage', categories.find(cat => cat.id === formData.id)?.subcategoryimage); // Append the old image URL if updating without a new image
+        }
+    
         uploadData.append('category', formData.category);
         uploadData.append('subcategory', formData.subcategory);
-
+        uploadData.append('sid', formData.sid); // Append sid to the form data
+    
         try {
             if (formData.id) {
                 // PUT request for updating existing category
@@ -68,16 +77,17 @@ const S2sCategoriesForm = () => {
                 setSuccess('Category added successfully!');
                 alert('Category added successfully!');
             }
-
+    
             // Clear form fields after submission
             setFormData({
                 id: '',
                 category: '',
                 subcategory: '',
-                subcategoryimage: ''
+                subcategoryimage: '',
+                sid: ''
             });
             setFile(null);
-
+    
             // Re-fetch the categories to reflect changes
             fetchCategories();
         } catch (error) {
@@ -90,6 +100,7 @@ const S2sCategoriesForm = () => {
             }
         }
     };
+    
 
     // Handle card click to populate form with existing category data
     const handleCardClick = (category) => {
@@ -97,13 +108,29 @@ const S2sCategoriesForm = () => {
             id: category.id, // Set the category ID for the PUT request
             category: category.category,
             subcategory: category.subcategory,
-            subcategoryimage: '' // Reset the image input; user can choose a new image or keep the old one
+            subcategoryimage: '', // Reset the image input; user can choose a new image or keep the old one
+            sid: category.sid // Populate sid when editing
         });
         setFile(null); // Clear the file input
     };
 
+    // Handle deleting a category using the DELETE API
+    const handleDelete = async (id) => {
+        if (window.confirm('Are you sure you want to delete this category?')) {
+            try {
+                await axios.delete(`http://localhost:3000/api/s2scategories/${id}`);
+                setSuccess('Category deleted successfully!');
+                alert('Category deleted successfully!');
+                fetchCategories(); // Re-fetch the categories to reflect changes
+            } catch (error) {
+                setError('Failed to delete category.');
+                alert('Category deleted successfully!');
+            }
+        }
+    };
+
     return (
-        <div className="s2s-containerr">
+        <div className="s2s-container">
             <form onSubmit={handleSubmit} className="s2s-form">
                 <label>
                     Category:
@@ -126,6 +153,16 @@ const S2sCategoriesForm = () => {
                     />
                 </label>
                 <label>
+                    SID:
+                    <input
+                        type="text"
+                        name="sid"
+                        value={formData.sid}
+                        onChange={handleChange}
+                        required
+                    />
+                </label>
+                <label>
                     Subcategory Image:
                     <input
                         type="file"
@@ -139,13 +176,16 @@ const S2sCategoriesForm = () => {
 
             {/* Display the fetched categories as cards */}
             <h2>Categories List</h2>
-            <div className="cards-containerr">
+            <div className="cards-container">
                 {categories.map((category) => (
-                    <div className="category-card" key={category.id} onClick={() => handleCardClick(category)}>
+                    <div className="category-card" key={category.id}>
                         <img src={category.subcategoryimage} alt={category.subcategory} className="category-image" />
                         <div className="category-info">
                             <h3>{category.category}</h3>
                             <p>{category.subcategory}</p>
+                            <p><strong>SID:</strong> {category.sid}</p> {/* Display SID */}
+                            <button onClick={() => handleCardClick(category)}>Edit</button>
+                            <button onClick={() => handleDelete(category.id)}>Delete</button>
                         </div>
                     </div>
                 ))}
