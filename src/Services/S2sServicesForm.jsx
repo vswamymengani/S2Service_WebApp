@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './S2sServicesForm.css';
 
-const AddServiceForm = () => {
+const ServiceManagementForm = () => {
   const [formData, setFormData] = useState({
     listofcategory: '',
     servicename: '',
@@ -11,12 +11,14 @@ const AddServiceForm = () => {
     reviews: '',
     price: '',
     description: '',
+    srid: '',
   });
   const [serviceImage, setServiceImage] = useState(null);
-  const [serviceVideo, setServiceVideo] = useState(null);
-  const [alert, setAlert] = useState({ message: '', type: '' }); // State for alert message
+  const [alert, setAlert] = useState({ message: '', type: '' });
   const [services, setServices] = useState([]);
   const [editingServiceId, setEditingServiceId] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); 
+  const [success, setSuccess] = useState(''); 
 
   useEffect(() => {
     fetchServices();
@@ -42,12 +44,9 @@ const AddServiceForm = () => {
     setServiceImage(e.target.files[0]);
   };
 
-  const handleVideoChange = (e) => {
-    setServiceVideo(e.target.files[0]);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); 
 
     const data = new FormData();
     data.append('listofcategory', formData.listofcategory);
@@ -57,12 +56,10 @@ const AddServiceForm = () => {
     data.append('reviews', formData.reviews);
     data.append('price', formData.price);
     data.append('description', formData.description);
+    data.append('srid', formData.srid); 
 
     if (serviceImage) {
       data.append('serviceimage', serviceImage);
-    }
-    if (serviceVideo) {
-      data.append('servicevideos', serviceVideo);
     }
 
     try {
@@ -71,17 +68,23 @@ const AddServiceForm = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      setAlert({ message: response.data.message, type: 'success' }); // Set alert message on success
+      setSuccess('Service added successfully!'); 
+      setTimeout(() => setSuccess(''), 3000); 
       fetchServices();
       resetForm();
     } catch (error) {
-      console.error('Error uploading service:', error.response?.data || error.message);
-      setAlert({ message: 'Failed to upload service', type: 'error' }); // Set alert message on error
+      const errorMessage =
+        error.response?.data?.message ||
+        (error.response?.status === 409 ? 'Service name must be unique' : 'Failed to add service');
+      setAlert({ message: errorMessage, type: 'error' });
+    } finally {
+      setIsLoading(false); 
     }
   };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+    setIsLoading(true); 
 
     const data = new FormData();
     data.append('listofcategory', formData.listofcategory);
@@ -91,12 +94,15 @@ const AddServiceForm = () => {
     data.append('reviews', formData.reviews);
     data.append('price', formData.price);
     data.append('description', formData.description);
+    data.append('srid', formData.srid); 
+
+    const existingService = services.find(service => service.id === editingServiceId);
+    const existingImageUrl = existingService?.serviceimage;
 
     if (serviceImage) {
       data.append('serviceimage', serviceImage);
-    }
-    if (serviceVideo) {
-      data.append('servicevideos', serviceVideo);
+    } else {
+      data.append('serviceimage', existingImageUrl);
     }
 
     try {
@@ -105,12 +111,29 @@ const AddServiceForm = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      setAlert({ message: response.data.message, type: 'success' }); // Set alert message on success
+      setSuccess('Service updated successfully!'); 
+      setTimeout(() => setSuccess(''), 3000); 
       fetchServices();
       resetForm();
     } catch (error) {
-      console.error('Error updating service:', error.response?.data || error.message);
-      setAlert({ message: 'Failed to update service', type: 'error' }); // Set alert message on error
+      const errorMessage =
+        error.response?.data?.message ||
+        (error.response?.status === 409 ? 'Service name must be unique' : 'Failed to update service');
+      setAlert({ message: errorMessage, type: 'error' });
+    } finally {
+      setIsLoading(false); 
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/api/s2sservices/${id}`);
+      setSuccess('Service deleted successfully!'); 
+      setTimeout(() => setSuccess(''), 3000); 
+      fetchServices();
+    } catch (error) {
+      const errorMessage = error.response?.data?.message || 'Failed to delete service';
+      setAlert({ message: errorMessage, type: 'error' });
     }
   };
 
@@ -123,11 +146,11 @@ const AddServiceForm = () => {
       reviews: '',
       price: '',
       description: '',
+      srid: '', 
     });
     setServiceImage(null);
-    setServiceVideo(null);
     setEditingServiceId(null);
-    setAlert({ message: '', type: '' }); // Reset alert message
+    setAlert({ message: '', type: '' });
   };
 
   const handleEdit = (service) => {
@@ -139,16 +162,16 @@ const AddServiceForm = () => {
       reviews: service.reviews,
       price: service.price,
       description: service.description,
+      srid: service.srid, 
     });
     setEditingServiceId(service.id);
   };
 
   return (
-    <div className="service-form-containerr">
+    <div className="service-management-container">
       <h2>{editingServiceId ? 'Edit Service' : 'Add New Service'}</h2>
       <form onSubmit={editingServiceId ? handleUpdate : handleSubmit}>
-        {/* Form Inputs */}
-        <div>
+        <div className="service-form-field">
           <label>List of Category:</label>
           <input
             type="text"
@@ -158,7 +181,7 @@ const AddServiceForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="service-form-field">
           <label>Service Name:</label>
           <input
             type="text"
@@ -168,7 +191,7 @@ const AddServiceForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="service-form-field">
           <label>Warranty:</label>
           <input
             type="text"
@@ -178,7 +201,7 @@ const AddServiceForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="service-form-field">
           <label>Rating:</label>
           <input
             type="number"
@@ -189,7 +212,7 @@ const AddServiceForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="service-form-field">
           <label>Reviews:</label>
           <input
             type="number"
@@ -199,78 +222,70 @@ const AddServiceForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="service-form-field">
           <label>Price:</label>
           <input
             type="number"
             name="price"
             value={formData.price}
-            step="0.01"
             onChange={handleChange}
             required
           />
         </div>
-        <div>
+        <div className="service-form-field">
           <label>Description:</label>
           <textarea
             name="description"
             value={formData.description}
             onChange={handleChange}
             required
+          ></textarea>
+        </div>
+        <div className="service-form-field">
+          <label>SRID:</label>
+          <input
+            type="text"
+            name="srid"
+            value={formData.srid}
+            onChange={handleChange}
+            required
           />
         </div>
-        <div>
+        <div className="service-form-field">
           <label>Service Image:</label>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            required={!editingServiceId}
+          />
         </div>
-        <div>
-          <label>Service Video:</label>
-          <input type="file" accept="video/*" onChange={handleVideoChange} />
-        </div>
-        <button type="submit">{editingServiceId ? 'Update Service' : 'Add Service'}</button>
+        {isLoading ? <p>Loading...</p> : <button type="submit">{editingServiceId ? 'Update' : 'Add'} Service</button>}
       </form>
-
-      {/* Alert Message */}
-      {alert.message && (
-        <div className={`alert ${alert.type}`}>
-          {alert.message}
-        </div>
-      )}
-
-      {/* Displaying the list of services */}
-      <div className="services-listr">
-        <h3>All Services</h3>
-        {services.length > 0 ? (
-          <div className="card-container09">
-            {services.map((service) => (
-              <div key={service.id} className="service-card09" onClick={() => handleEdit(service)}>
-                <h4>{service.servicename}</h4>
-                <p><strong>Price:</strong> ${service.price}</p>
-                <p><strong>Rating:</strong> {service.rating}</p>
-                <p><strong>Reviews:</strong> {service.reviews}</p>
-                <p><strong>Description:</strong> {service.description}</p>
-                {service.serviceimage && (
-                  <img
-                    src={service.serviceimage}
-                    alt={service.servicename}
-                    className="service-image"
-                  />
-                )}
-                {service.servicevideos && (
-                  <video className="service-video09" width="200" controls>
-                    <source src={service.servicevideos} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                )}
-              </div>
-            ))}
+      {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+      {success && <div className="success-message">{success}</div>} 
+      <h3>Existing Services</h3>
+      <div className="service-card-wrapper">
+        {services.map((service) => (
+          <div className="service-card" key={service.id}>
+            <h4>{service.servicename}</h4>
+            <p>Category: {service.listofcategory}</p>
+            <p>Warranty: {service.warranty}</p>
+            <p>Rating: {service.rating}</p>
+            <p>Reviews: {service.reviews}</p>
+            <p>Price: {service.price}</p>
+            <p>Description: {service.description}</p>
+            <p>SRID: {service.srid}</p>
+            {service.serviceimage && <img src={service.serviceimage} alt={service.servicename} />}
+            <div className="service-card-buttons">
+              <button onClick={() => handleEdit(service)}>Edit</button>
+              <button onClick={() => handleDelete(service.id)}>Delete</button>
+            </div>
           </div>
-        ) : (
-          <p>No services found.</p>
-        )}
+        ))}
       </div>
     </div>
   );
 };
 
-export default AddServiceForm;
+export default ServiceManagementForm;
