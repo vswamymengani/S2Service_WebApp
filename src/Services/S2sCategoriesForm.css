@@ -1,90 +1,123 @@
 /* S2sCategoriesForm.css */
 
 .s2s-containerr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #76888e;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .s2s-form {
+    width: 100%;
+    max-width: 500px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.s2s-form label {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-label {
+    font-weight: bold;
+    margin-bottom: 15px;
     font-size: 16px;
-    margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="file"] {
+.s2s-form input[type="text"],
+.s2s-form input[type="file"] {
     padding: 10px;
-    border: 1px solid #ccc;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 16px;
-    width: 100%;
 }
 
-button {
-    padding: 10px;
-    background-color: #007bff;
+.s2s-form button {
+    background-color: #4caf50;
     color: white;
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
     border-radius: 4px;
-    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.s2s-form button:hover {
+    background-color: #45a049;
 }
 
+/* Categories List Section */
 h2 {
-    margin-top: 30px;
     font-size: 24px;
-    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
 }
 
-.cards-containerr {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .category-card {
-    background-color: white;
+    width: 220px;
+    background-color: #ffffff;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.2s;
+    text-align: center;
+    transition: transform 0.3s ease;
+    padding: 15px;
 }
 
 .category-card:hover {
-    transform: translateY(-5px);
+    transform: scale(1.05);
 }
 
 .category-image {
     width: 100%;
-    height: auto;
+    height: 150px;
     object-fit: cover;
-}
-
-.category-info {
-    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
 }
 
 .category-info h3 {
     font-size: 18px;
-    margin: 0 0 5px;
+    color: #333;
+    margin: 0;
 }
 
 .category-info p {
     font-size: 14px;
     color: #555;
+    margin: 5px 0;
+}
+
+.category-info p strong {
+    font-weight: bold;
+}
+
+.category-info button {
+    background-color: #ff6347;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.category-info button:hover {
+    background-color: #e0533f;
 }

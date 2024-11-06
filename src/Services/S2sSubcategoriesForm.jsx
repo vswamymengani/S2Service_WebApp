@@ -97,6 +97,7 @@ const S2sSubcategoriesForm = () => {
     };
 
     return (
+        <div>
         <div className="form-container00">
             <form onSubmit={handleSubmit}>
                 <label>
@@ -126,28 +127,30 @@ const S2sSubcategoriesForm = () => {
                 <button type="submit">{editingId ? 'Update' : 'Submit'}</button>
             </form>
 
-            <h3>Existing Subcategories</h3>
-            <div className="custom-card-grid00">
-    {categories.length > 0 ? (
-        categories.map((category) => (
-            <div key={category.id} className="custom-card00" onClick={() => handleEdit(category)}>
-                <img
-                    src={category.listofcategoryimage}
-                    alt="List of Category"
-                    className="custom-card-image00"
-                />
-                <div className="custom-card-content00">
-                    <h4>{category.subcategory}</h4>
-                    <p>{category.listofcategory}</p>
-                </div>
-            </div>
-        ))
-    ) : (
-        <p>No subcategories found.</p>
-    )}
+           
+        </div>
+         <h3>Existing Subcategories</h3>
+         <div className="custom-card-grid00">
+ {categories.length > 0 ? (
+     categories.map((category) => (
+         <div key={category.id} className="custom-card00" onClick={() => handleEdit(category)}>
+             <img
+                 src={category.listofcategoryimage}
+                 alt="List of Category"
+                 className="custom-card-image00"
+             />
+             <div className="custom-card-content00">
+                 <h4>{category.subcategory}</h4>
+                 <p>{category.listofcategory}</p>
+             </div>
+         </div>
+     ))
+ ) : (
+     <p>No subcategories found.</p>
+ )}
+</div>
 </div>
 
-        </div>
     );
 };
 

@@ -1,12 +1,17 @@
+/* S2sServicesForm.css */
+
 .service-management-container {
-  margin: 20px;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #76888e;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.service-management-container h2 {
+h2, h3 {
   text-align: center;
+  color: #333;
 }
 
 .service-form-field {
@@ -15,6 +20,8 @@
 
 .service-form-field label {
   display: block;
+  font-weight: bold;
+  color: #555;
   margin-bottom: 5px;
 }
 
@@ -22,19 +29,47 @@
 .service-form-field textarea {
   width: 100%;
   padding: 8px;
-  border-radius: 4px;
   border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-.service-form-field button {
-  display: block;
+.service-form-field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button[type="submit"] {
   width: 100%;
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #4CAF50;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.alert, .success-message {
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
 }
 
 .service-card-wrapper {
@@ -46,33 +81,67 @@
 }
 
 .service-card {
+  width: 100%;
+  max-width: 280px;
   background-color: #fff;
-  padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
   text-align: center;
+  position: relative;
 }
 
 .service-card img {
   max-width: 100%;
+  height: auto;
+  margin-top: 10px;
   border-radius: 4px;
+}
+
+.service-card h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
 }
 
 .service-card-buttons {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 
-.alert {
-  text-align: center;
-  color: red;
-  margin-top: 10px;
+.service-card-buttons button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
-.success-message {
-  text-align: center;
-  color: green;
-  margin-top: 10px;
+.service-card-buttons button:first-child {
+  background-color: #008CBA;
+  color: white;
+  margin-right: 5px;
+}
+
+.service-card-buttons button:first-child:hover {
+  background-color: #007B9E;
+}
+
+.service-card-buttons button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.service-card-buttons button:last-child:hover {
+  background-color: #d32f2f;
 }

@@ -1,81 +1,89 @@
 .form-container00 {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 500px;
+    margin: 20px auto;
     padding: 20px;
-    background-color: rgb(154, 185, 185);
-  
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
-form {
+.form-container00 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
 }
 
-form label {
+.form-container00 label {
+    margin-bottom: 15px;
     font-weight: bold;
+    color: #333;
 }
 
-form input[type="text"],
-form input[type="file"] {
+.form-container00 input[type="text"],
+.form-container00 input[type="file"] {
     padding: 8px;
-    font-size: 14px;
-    width: 100%;
-}
-
-form button {
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-form button:hover {
-    background-color: #218838;
-}
-
-
-
-.custom-card-grid00{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.custom-card00{
-    background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-container00 button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: background-color 0.3s ease;
+}
+
+.form-container00 button:hover {
+    background-color: #0056b3;
+}
+
+.custom-card-grid00 {
+    display: grid;
+    grid-auto-flow: column; /* Forces items to flow in a single row */
+    grid-template-columns: repeat(auto-fill, 150px); /* Sets each item to a fixed width */
+    gap: 20px;
+    margin-top: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling if content overflows */
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+
+.custom-card00 {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .custom-card00:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .custom-card-image00 {
     width: 100%;
-    height: 200px;
+    height: 100px;
     object-fit: cover;
-}
-
-.custom-card-content00{
-    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
 }
 
 .custom-card-content00 h4 {
-    margin: 0 0 10px;
-    font-size: 18px;
+    margin: 0;
+    font-size: 16px;
+    color: #333;
 }
 
 .custom-card-content00 p {
-    margin: 0;
+    margin: 5px 0 0;
+    font-size: 14px;
     color: #666;
 }

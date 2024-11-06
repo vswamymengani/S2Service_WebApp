@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import './S2sServicesForm.css';
 
@@ -168,6 +168,7 @@ const ServiceManagementForm = () => {
   };
 
   return (
+    <div>
     <div className="service-management-container">
       <h2>{editingServiceId ? 'Edit Service' : 'Add New Service'}</h2>
       <form onSubmit={editingServiceId ? handleUpdate : handleSubmit}>
@@ -264,27 +265,29 @@ const ServiceManagementForm = () => {
       </form>
       {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
       {success && <div className="success-message">{success}</div>} 
-      <h3>Existing Services</h3>
-      <div className="service-card-wrapper">
-        {services.map((service) => (
-          <div className="service-card" key={service.id}>
-            <h4>{service.servicename}</h4>
-            <p>Category: {service.listofcategory}</p>
-            <p>Warranty: {service.warranty}</p>
-            <p>Rating: {service.rating}</p>
-            <p>Reviews: {service.reviews}</p>
-            <p>Price: {service.price}</p>
-            <p>Description: {service.description}</p>
-            <p>SRID: {service.srid}</p>
-            {service.serviceimage && <img src={service.serviceimage} alt={service.servicename} />}
-            <div className="service-card-buttons">
-              <button onClick={() => handleEdit(service)}>Edit</button>
-              <button onClick={() => handleDelete(service.id)}>Delete</button>
-            </div>
-          </div>
-        ))}
-      </div>
+     
     </div>
+     <h3>Existing Services</h3>
+     <div className="service-card-wrapper">
+       {services.map((service) => (
+         <div className="service-card" key={service.id}>
+           <h4>{service.servicename}</h4>
+           <p>Category: {service.listofcategory}</p>
+           <p>Warranty: {service.warranty}</p>
+           <p>Rating: {service.rating}</p>
+           <p>Reviews: {service.reviews}</p>
+           <p>Price: {service.price}</p>
+           <p>Description: {service.description}</p>
+           <p>SRID: {service.srid}</p>
+           {service.serviceimage && <img src={service.serviceimage} alt={service.servicename} />}
+           <div className="service-card-buttons">
+             <button onClick={() => handleEdit(service)}>Edit</button>
+             <button onClick={() => handleDelete(service.id)}>Delete</button>
+           </div>
+         </div>
+       ))}
+     </div>
+     </div>
   );
 };
 

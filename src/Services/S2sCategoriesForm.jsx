@@ -130,7 +130,7 @@ const S2sCategoriesForm = () => {
     };
 
     return (
-        <div className="s2s-container">
+        <div className="s2s-containerr">
             <form onSubmit={handleSubmit} className="s2s-form">
                 <label>
                     Category:
