@@ -1,113 +1,132 @@
 /* Container for the Customer Details component */
-.cd-container {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  /* Button Group */
-  .cd-button-group {
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .cd-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    height: 50px; /* Increased button height */
-    flex-grow: 1; /* Ensures buttons grow equally to fill the available space */
-  }
-  
-  .cd-register-btn {
-    background-color: #4caf50;
-    color: white;
-    width: 100px;
-  }
-  
-  .cd-modify-btn {
-    background-color: #2196f3;
-    color: white;
-    width: 250px;
-  }
-  
-  /* Search Bar */
-  .cd-search-bar {
-    margin-bottom: 20px;
-  }
-  
-  .cd-search-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Table Styling */
-  .cd-table-container {
-    overflow-x: auto;
-  }
-  
-  .cd-customer-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .cd-customer-table th, 
-  .cd-customer-table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .cd-customer-table th {
-    background-color: #f2f2f2;
-  }
-  
-  /* Customer Image Styling */
-  .cd-customer-image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  
-  /* Error Message */
-  .cd-error {
-    color: red;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* No Data Message */
-  .cd-no-data {
-    text-align: center;
-    font-style: italic;
-    padding: 20px;
-    color: #999;
-  }
-  
-  /* Media Queries for Responsiveness */
-  @media (max-width: 600px) {
-    .cd-btn {
+.customer-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: lightblue;
+}
+
+/* Button Group */
+.customer-button-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.customer-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  flex-grow: 1;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+.customer-register-btn {
+  background-color: #4CAF50;
+
+  color: white;
+  width: 100px;
+}
+
+.customer-modify-btn {
+  background-color: #2196F3;
+  color: white;
+  width: 250px;
+}
+
+.customer-btn:hover {
+  opacity: 0.9;
+}
+
+/* Search Bar */
+.customer-search-bar {
+  margin-bottom: 20px;
+}
+
+.customer-search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #140606;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Table Styling */
+.customer-table-container {
+  overflow-x: auto;
+}
+
+.customer-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.customer-table th, 
+.customer-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.customer-table th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.customer-table td {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Customer Image Styling */
+.customer-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Error Message */
+.customer-error {
+  color: #D32F2F;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* No Data Message */
+.customer-no-data {
+  text-align: center;
+  font-style: italic;
+  padding: 20px;
+  color: #999;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+  .customer-btn {
       font-size: 14px;
       padding: 8px 15px;
-      height: 45px; /* Reduced button height for smaller screens */
-    }
-  
-    .cd-customer-table th, 
-    .cd-customer-table td {
-      padding: 8px;
-    }
-  
-    .cd-customer-image {
-      width: 40px;
-      height: 40px; /* Reduced image size for smaller screens */
-    }
+      height: 45px;
   }
-  
+
+  .customer-table th, 
+  .customer-table td {
+      padding: 8px;
+  }
+
+  .customer-image {
+      width: 40px;
+      height: 40px;
+  }
+}
