@@ -22,6 +22,11 @@ import Home1 from './Services/Home1';
 import S2sCategoriesForm from './Services/S2sCategoriesForm';
 import S2sServicesForm from './Services/S2sServicesForm';
 import S2sSubcategoriesForm from './Services/S2sSubcategoriesForm';
+import CartTable from './Services/CartTable';
+import Transaction_Dtl from './Services/Transaction_Dtl';
+import Technician_Dtl from './Services/Technician_Dtl';
+import TechSkill from './Services/TechSkill';
+import TechAvailability from './Services/TechAvailability';
 
 function SidebarWrapper({ children }) {
   const location = useLocation();
@@ -68,6 +73,12 @@ function App() {
             <Route path="/S2sCategoriesForm" element={<S2sCategoriesForm/>} />
             <Route path="/S2sServicesForm" element={<S2sServicesForm/>} />
             <Route path="/S2sSubcategoriesForm" element={<S2sSubcategoriesForm/>} />
+            <Route path="/CartTable" element={<CartTable/>} />
+            <Route path="/Transaction_Dtl" element={<Transaction_Dtl/>} />
+            <Route path="/Technician_Dtl" element={<Technician_Dtl/>} />
+            <Route path="/TechSkill" element={<TechSkill/>} />
+            <Route path="/TechAvailability" element={<TechAvailability/>} />
+
 
             {/* Add other routes as needed */}
           </Routes>

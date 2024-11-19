@@ -1,113 +1,37 @@
-/* Container for the Student Details component */
+/* src/Sd.css */
 .sd-container {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  /* Button Group */
-  .sd-button-group {
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .sd-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    height: 50px; /* Increased button height */
-    flex-grow: 1; /* Ensures buttons grow equally to fill the available space */
-  }
-  
-  .sd-register-btn {
-    background-color: #4caf50;
-    color: white;
-    width: 100px;
-  }
-  
-  .sd-modify-btn {
-    background-color: #2196f3;
-    color: white;
-    width: 250px;
-  }
-  
-  /* Search Bar */
-  .sd-search-bar {
-    margin-bottom: 20px;
-  }
-  
-  .sd-search-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Table Styling */
-  .sd-table-container {
-    overflow-x: auto;
-  }
-  
-  .sd-student-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .sd-student-table th, 
-  .sd-student-table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .sd-student-table th {
-    background-color: #f2f2f2;
-  }
-  
-  /* Student Image Styling */
-  .sd-student-image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  
-  /* Error Message */
-  .sd-error {
-    color: red;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* No Data Message */
-  .sd-no-data {
-    text-align: center;
-    font-style: italic;
-    padding: 20px;
-    color: #999;
-  }
-  
-  /* Media Queries for Responsiveness */
-  @media (max-width: 600px) {
-    .sd-btn {
-      font-size: 14px;
-      padding: 8px 15px;
-      height: 45px; /* Reduced button height for smaller screens */
-    }
-  
-    .sd-student-table th, 
-    .sd-student-table td {
-      padding: 8px;
-    }
-  
-    .sd-student-image {
-      width: 40px;
-      height: 40px; /* Reduced image size for smaller screens */
-    }
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 130vh;
+  height: 80vh; /* Full height */
+  background-color: #9cb053; /* Light background */
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #3f199f; /* Dark text color */
+}
+
+.sd-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between buttons */
+}
+
+.sd-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff; /* Bootstrap primary color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline */
+  text-align: center;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.sd-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

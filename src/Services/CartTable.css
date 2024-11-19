@@ -1,0 +1,63 @@
+/* Container for the Cart Details component */
+.cart-container {
+    width: 100%;
+    height: 100vh; /* Occupy full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push content apart */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: lightblue;
+}
+
+/* Table Container Styling */
+.cart-table-container {
+    flex: 1; /* Allow the table container to grow and occupy space */
+    overflow-x: auto;
+    margin-top: 10px; /* Optional spacing */
+}
+
+/* Table Styling */
+.cart-details-table {
+    width: 100%;
+    height: 100%; /* Ensure the table fills the container */
+    border-collapse: collapse;
+}
+
+.cart-details-table th, 
+.cart-details-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.cart-details-table th {
+    background-color: #f2f2f2;
+}
+
+/* Error Message */
+.cart-error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* No Data Message */
+.cart-no-data {
+    text-align: center;
+    font-style: italic;
+    padding: 20px;
+    color: #999;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .cart-details-table th, 
+    .cart-details-table td {
+        padding: 8px;
+        font-size: 12px; /* Smaller font size for smaller screens */
+    }
+    .cart-container {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+}
