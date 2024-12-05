@@ -12,7 +12,7 @@ const Images = () => {
 
   // Handler function for navigating to the student component
   const handleIoClick = () => {
-    navigate('/Events');
+    navigate('/Td');
   };
 
   const handleNewCardClick = () => {
@@ -28,7 +28,7 @@ const Images = () => {
   return (
     <div className="images-wrapper">
       {/* Centered title */}
-      <h1 className="images-title">Images</h1>
+      <h1 className="images-title">Service Request Management</h1>
       
       {/* Container for school images */}
       <div className="images-logo-container">
@@ -39,14 +39,25 @@ const Images = () => {
       <div className="images-card-container">
         <div className="images-card" onClick={handleIoClick}>
           <img src={img1} alt="Service" className="images-img" />
-          <h3 className="images-card-title">Image Details</h3>
+          <h3 className="images-card-title">Service History</h3>
         </div>
         
         {/* New Card beside the existing one */}
         <div className="images-card" onClick={handleNewCardClick}>
           <img src={img2} alt="New Feature" className="images-img" />
-          <h3 className="images-card-title">Image Complaints</h3>
+          <h3 className="images-card-title">Shedule Service</h3>
         </div>
+
+        <div className="images-card" onClick={handleIoClick}>
+          <img src={img1} alt="Service" className="images-img" />
+          <h3 className="images-card-title">New Request</h3>
+        </div>
+
+        <div className="images-card" onClick={handleIoClick}>
+          <img src={img1} alt="Service" className="images-img" />
+          <h3 className="images-card-title">Other Details</h3>
+        </div>
+
       </div>
     </div>
   );

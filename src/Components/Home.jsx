@@ -109,19 +109,19 @@ const Home = () => {
         </div>
         <div className="dashboard-card" onClick={handleImagesClick}>
           <img src={img5} alt="Library" className="dashboard-img" />
-          <h3>Images</h3>
+          <h3>Service Requests</h3>
         </div>
         <div className="dashboard-card" onClick={handleEventsClick}>
           <img src={img6} alt="Events" className="dashboard-img" />
-          <h3>Events</h3>
+          <h3>Payments and Billing</h3>
         </div>
         <div className="dashboard-card" onClick={handleClassesClick}>
           <img src={img7} alt="Classes" className="dashboard-img" />
-          <h3>Classes</h3>
+          <h3>Inventory Management</h3>
         </div>
         <div className="dashboard-card" onClick={handleTeacherAttendanceClick}>
           <img src={img8} alt="Teacher Attendance" className="dashboard-img" />
-          <h3>Teacher Attendance</h3>
+          <h3>Reporting and Analytics</h3>
         </div>
       </div>
     </div>

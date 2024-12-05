@@ -33,7 +33,7 @@ const Technicians = () => {
   };
 
   const handleNewFeatureClick = () => {
-    navigate('/technician-complaints'); // Navigate to Technician Complaints component
+    navigate('/TechServiceList'); // Navigate to Technician Complaints component
   };
 
   const handleBookingsClick = () => {
@@ -56,7 +56,7 @@ const Technicians = () => {
         {/* Card for Technician Details */}
         <div className="technicians-card" onClick={handleTechnicianClick}>
           <img src={img1} alt="Technicians" className="technicians-img" />
-          <h3 className="technicians-card-title">Technician Details</h3>
+          <h3 className="technicians-card-title">Technician Profiles</h3>
           
       {/* Display the dynamic technician count */}
       <h3 className="technicians-card-title">Total {technicianCount} Technicians</h3>
@@ -64,15 +64,26 @@ const Technicians = () => {
 
         {/* Card for Technician Complaints */}
         <div className="technicians-card" onClick={handleNewFeatureClick}>
-          <img src={img2} alt="Technician Complaints" className="technicians-img" />
-          <h3 className="technicians-card-title">Technician Complaints</h3>
+          <img src={img2} alt="TechServiceList" className="technicians-img" />
+          <h3 className="technicians-card-title">TechServiceList</h3>
         </div>
 
         {/* Card for Technician Bookings */}
         <div className="technicians-card" onClick={handleBookingsClick}>
           <img src={img3} alt="Technician Bookings" className="technicians-img" />
-          <h3 className="technicians-card-title">Technician Bookings</h3>
+          <h3 className="technicians-card-title">Technician Performance</h3>
         </div>
+
+        <div className="technicians-card" onClick={handleBookingsClick}>
+          <img src={img3} alt="Technician Bookings" className="technicians-img" />
+          <h3 className="technicians-card-title">Technician Ratings and Reviews</h3>
+        </div>
+
+        <div className="technicians-card" onClick={handleBookingsClick}>
+          <img src={img3} alt="Technician Bookings" className="technicians-img" />
+          <h3 className="technicians-card-title">Technician Booking History</h3>
+        </div>
+
       </div>
     </div>
   );

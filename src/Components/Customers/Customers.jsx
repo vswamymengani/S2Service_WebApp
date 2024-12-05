@@ -1,38 +1,41 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import img1 from './cusdeta (1).png';
-import logoImg from './slogo.png'; // School logo image
-import img2 from './call (1).png';
-import './Customers.css';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import img1 from "./cusdeta (1).png";
+import logoImg from "./slogo.png"; // School logo image
+import img2 from "./call (1).png";
+import SupportForm from "./SupportForm"; // Import the SupportForm component
+import "./Customers.css";
 
 const Customers = () => {
-  // State to store the customer count
-  const [customerCount, setCustomerCount] = useState(0);
+  const [customerCount, setCustomerCount] = useState(0); // State for customer count
+  const [showSupportForm, setShowSupportForm] = useState(false); // State to toggle SupportForm
   const navigate = useNavigate();
 
-  // Handler function for navigating to the customer details component
+  // Handlers for navigation
   const handleCdClick = () => {
-    navigate('/Cd');
+    navigate("/Cd");
   };
 
-  // Handler function for navigating to the student component
   const handleNewCardClick = () => {
-    navigate('/student');
+    navigate("/student");
   };
 
-  // Function to fetch the customer count
+  // Handler to toggle the SupportForm visibility
+  const handleNewCardClick1 = () => {
+    setShowSupportForm((prev) => !prev); // Toggle the form visibility
+  };
+
+  // Fetch the customer count
   const fetchCustomerCount = async () => {
     try {
-      // API call to get customer count
-      const response = await axios.get('http://localhost:3000/CustomerCount');
-      setCustomerCount(response.data.customerCount); // Set the customer count from the response
+      const response = await axios.get("http://localhost:3000/CustomerCount");
+      setCustomerCount(response.data.customerCount);
     } catch (error) {
-      console.error('Error fetching customer count:', error);
+      console.error("Error fetching customer count:", error);
     }
   };
 
-  // Fetch customer count when the component mounts
   useEffect(() => {
     fetchCustomerCount();
   }, []);
@@ -42,27 +45,36 @@ const Customers = () => {
       {/* Centered title */}
       <h1 className="customers-title">Customer</h1>
 
-      {/* Container for school images */}
+      {/* School logo */}
       <div className="customers-images-container">
         <img src={logoImg} alt="School Logo" className="school-logo" />
       </div>
 
-      {/* Single card for customers */}
+      {/* Cards */}
       <div className="customers-card-container">
-        {/* Customer Details Card */}
         <div className="customers-card" onClick={handleCdClick}>
           <img src={img1} alt="Customers" className="customers-img" />
-          <h3 className="customers-card-title">Customer Details</h3>
-          {/* Display the customer count dynamically */}
+          <h3 className="customers-card-title">Customer Profiles</h3>
           <h3 className="customers-card-title">Total {customerCount} Customers</h3>
         </div>
 
-        {/* Customer Bookings Card */}
         <div className="customers-card" onClick={handleNewCardClick}>
-          <img src={img2} alt="New Feature" className="customers-img" />
+          <img src={img2} alt="Customer Bookings" className="customers-img" />
           <h3 className="customers-card-title">Customer Bookings</h3>
         </div>
+
+        <div className="customers-card" onClick={handleNewCardClick1}>
+          <img src={img2} alt="Customer Support and Feedback" className="customers-img" />
+          <h3 className="customers-card-title">Customer Support and Feedback</h3>
+        </div>
       </div>
+
+      {/* Conditional rendering of SupportForm */}
+      {showSupportForm && (
+        <div className="support-form-container">
+          <SupportForm />
+        </div>
+      )}
     </div>
   );
 };
