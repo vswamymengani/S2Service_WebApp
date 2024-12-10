@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import BookingForm from "./BookingForm"; // Import the BookingForm component
+import CustomerFeedbackForm from "./CustomerFeedbacl"; // Import the CustomerBookingForm component
 import "./SupportForm.css";
 
 const SupportForm = () => {
+  const [showBookingForm, setShowBookingForm] = useState(false); // State to toggle BookingForm visibility
+  const [showCustomerBookingForm, setShowCustomerBookingForm] = useState(false); // State to toggle CustomerBookingForm visibility
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -28,132 +33,47 @@ const SupportForm = () => {
     console.log("Form Submitted", formData);
   };
 
+  const handleNewRequestClick = () => {
+    setShowBookingForm((prev) => !prev); // Toggle the BookingForm visibility
+    setShowCustomerBookingForm(false); // Ensure CustomerBookingForm is hidden
+  };
+
+  const handleCustomerBookingClick = () => {
+    setShowCustomerBookingForm((prev) => !prev); // Toggle the CustomerBookingForm visibility
+    setShowBookingForm(false); // Ensure BookingForm is hidden
+  };
+
   return (
-    <div className="form-container">
+    <div className="support-form-container">
       <h2>Customer Support Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Full Name:
-          <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            required
-          />
-        </label>
-
-        <label>
-          Email Address:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-
-        <label>
-          Phone Number:
-          <input
-            type="text"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-            required
-          />
-        </label>
-
-        <label>
-          Service Reference Number:
-          <input
-            type="text"
-            name="serviceReference"
-            value={formData.serviceReference}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label>
-          Type of Request:
-          <select
-            name="typeOfRequest"
-            value={formData.typeOfRequest}
-            onChange={handleChange}
-            required
+      <form className="support-form" onSubmit={handleSubmit}>
+        <div className="support-form-buttons">
+          <button
+            type="button"
+            className="support-form-button new-service-button"
+            onClick={handleNewRequestClick}
           >
-            <option value="">Select...</option>
-            <option value="Service Issue">Service Issue</option>
-            <option value="Payment Issue">Payment Issue</option>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Feedback">Feedback</option>
-          </select>
-        </label>
-
-        <label>
-          Subject:
-          <input
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          />
-        </label>
-
-        <label>
-          Message:
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </label>
-
-        <label>
-          Rating:
-          <select
-            name="rating"
-            value={formData.rating}
-            onChange={handleChange}
-            required
+            New Service Request
+          </button>
+          <button
+            type="button"
+            className="support-form-button customer-booking-button"
+            onClick={handleCustomerBookingClick}
           >
-            <option value="">Rate the service...</option>
-            <option value="1">1 - Poor</option>
-            <option value="2">2 - Fair</option>
-            <option value="3">3 - Good</option>
-            <option value="4">4 - Very Good</option>
-            <option value="5">5 - Excellent</option>
-          </select>
-        </label>
+            Customer Feedback Form
+          </button>
+        </div>
 
-        <label>
-          Attachments:
-          <input
-            type="file"
-            name="attachments"
-            onChange={handleChange}
-          />
-        </label>
+        {/* The rest of your form fields */}
 
-        <label>
-          Preferred Contact Method:
-          <select
-            name="preferredContactMethod"
-            value={formData.preferredContactMethod}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select...</option>
-            <option value="Phone">Phone</option>
-            <option value="Email">Email</option>
-          </select>
-        </label>
-
-        <button type="submit">Submit</button>
+    
       </form>
+
+      {/* Conditionally render the BookingForm */}
+      {showBookingForm && <BookingForm />}
+
+      {/* Conditionally render the CustomerBookingForm */}
+      {showCustomerBookingForm && <CustomerFeedbackForm />}
     </div>
   );
 };

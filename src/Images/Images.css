@@ -79,4 +79,29 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
   }
+  .images-card {
+    border: 2px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
   
+  .images-card:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .images-card.active-card {
+    background-color: #f0f8ff;
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  }
+  
+  .form-container {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+    

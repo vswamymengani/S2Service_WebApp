@@ -42,46 +42,46 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-wrapper">
       {/* Logo at the top */}
-      <img src={Image6} alt="Logo" className="logo" />
+      <img src={Image6} alt="Logo" className="login-logo" />
 
-      <div className="login-inner-container">
-        <h1 className="header-title">Login</h1>
+      <div className="login-form-wrapper">
+        <h1 className="login-title">Login</h1>
 
         {/* Form Container */}
-        <div className="form-container">
+        <div className="input-group">
           {/* Email field */}
-          <div className="input-row">
+          <div className="input-item">
             <label htmlFor="email" className="input-label">Email</label>
             <input
               id="email"
               type="email"
-              className="input"
+              className="input-field"
               placeholder="example@gmail.com"
               value={email}
               onChange={(e) => { setEmail(e.target.value); clearError('email'); }}
             />
           </div>
-          {errors.email && <p className="error">{errors.email}</p>}
+          {errors.email && <p className="error-message">{errors.email}</p>}
 
           {/* Password field */}
-          <div className="input-row">
+          <div className="input-item">
             <label htmlFor="password" className="input-label">Password</label>
             <input
               id="password"
               type="password"
-              className="input"
+              className="input-field"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => { setPassword(e.target.value); clearError('password'); }}
             />
           </div>
-          {errors.password && <p className="error">{errors.password}</p>}
+          {errors.password && <p className="error-message">{errors.password}</p>}
         </div>
 
         {/* Login Button */}
-        <button className="login-button" onClick={handleLogin}>Login</button>
+        <button className="submit-button" onClick={handleLogin}>Login</button>
       </div>
     </div>
   );

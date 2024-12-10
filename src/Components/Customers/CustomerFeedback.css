@@ -1,0 +1,103 @@
+/* Container Styling */
+.support-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Heading Styling */
+  .support-form-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Styling */
+  .support-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Label Styling */
+  .support-form-label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  /* Input and Select Styling */
+  .support-form-input,
+  .support-form-select,
+  .support-form-textarea,
+  .support-form-file-input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+  }
+  
+  /* Input Focus Effect */
+  .support-form-input:focus,
+  .support-form-select:focus,
+  .support-form-textarea:focus,
+  .support-form-file-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Textarea Styling */
+  .support-form-textarea {
+    height: 120px;
+    resize: vertical;
+  }
+  
+  /* File Input Styling */
+  .support-form-file-input {
+    padding: 5px;
+  }
+  
+  /* Button Styling */
+  .support-form-button {
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+  }
+  
+  .support-form-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .support-form-container {
+      padding: 15px;
+      margin: 20px;
+    }
+  
+    .support-form-input,
+    .support-form-select,
+    .support-form-textarea,
+    .support-form-file-input {
+      font-size: 12px;
+    }
+  
+    .support-form-button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  

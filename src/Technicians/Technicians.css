@@ -73,4 +73,15 @@
     font-size: 1.2rem;
     font-weight: 500;
   }
+  .technicians-card.selected {
+    background-color: #f0ad4e; /* Change the background color */
+    border: 2px solid #d9534f; /* Optional: Add a border */
+    color: #fff; /* Optional: Adjust text color */
+    transform: scale(1.05); /* Optional: Slightly enlarge the card */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  .technicians-card:hover {
+    cursor: pointer;
+  }
   

@@ -29,6 +29,11 @@ import TechSkill from './Services/TechSkill';
 import TechAvailability from './Services/TechAvailability';
 import TechServiceList from './Technicians/TechServiceList';
 import SupportForm from './Components/Customers/SupportForm';
+import TechnicianForm from './Technicians/TechnicianForm';
+import ServiceBookingForm from './Services/ServiceBookingForm';
+import CustomerBooking from './Components/Customers/CustomerBooking';
+import BookingForm from './Components/Customers/BookingForm';
+import CustomerFeedbackForm from './Components/Customers/CustomerFeedbacl';
 
 function SidebarWrapper({ children }) {
   const location = useLocation();
@@ -82,6 +87,12 @@ function App() {
             <Route path="/TechAvailability" element={<TechAvailability/>} />
             <Route path="/TechServiceList" element={<TechServiceList/>} />
             <Route path="/SupportForm" element={<SupportForm/>} />
+            <Route path="/TechnicianForm" element={<TechnicianForm/>} />
+            <Route path="/ServiceBookingForm" element={<ServiceBookingForm/>} />
+            <Route path="/CustomerBooking" element={<CustomerBooking/>} />
+            <Route path="/BookingForm" element={<BookingForm/>} />
+            <Route path="/CustomerFeedbackForm" element={<CustomerFeedbackForm/>} />
+
 
 
             {/* Add other routes as needed */}

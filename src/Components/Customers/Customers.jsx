@@ -9,21 +9,23 @@ import "./Customers.css";
 
 const Customers = () => {
   const [customerCount, setCustomerCount] = useState(0); // State for customer count
-  const [showSupportForm, setShowSupportForm] = useState(false); // State to toggle SupportForm
+  const [activeCard, setActiveCard] = useState(""); // State to track the active card
   const navigate = useNavigate();
 
   // Handlers for navigation
   const handleCdClick = () => {
+    setActiveCard("customerProfiles"); // Set active card
     navigate("/Cd");
   };
 
   const handleNewCardClick = () => {
-    navigate("/student");
+    setActiveCard("CustomerBooking"); // Set active card
+    navigate("/CustomerBooking");
   };
 
   // Handler to toggle the SupportForm visibility
   const handleNewCardClick1 = () => {
-    setShowSupportForm((prev) => !prev); // Toggle the form visibility
+    setActiveCard("customerSupport"); // Set active card
   };
 
   // Fetch the customer count
@@ -52,25 +54,40 @@ const Customers = () => {
 
       {/* Cards */}
       <div className="customers-card-container">
-        <div className="customers-card" onClick={handleCdClick}>
+        <div
+          className={`customers-card ${
+            activeCard === "customerProfiles" ? "active-card" : ""
+          }`}
+          onClick={handleCdClick}
+        >
           <img src={img1} alt="Customers" className="customers-img" />
           <h3 className="customers-card-title">Customer Profiles</h3>
           <h3 className="customers-card-title">Total {customerCount} Customers</h3>
         </div>
 
-        <div className="customers-card" onClick={handleNewCardClick}>
+        <div
+          className={`customers-card ${
+            activeCard === "customerBookings" ? "active-card" : ""
+          }`}
+          onClick={handleNewCardClick}
+        >
           <img src={img2} alt="Customer Bookings" className="customers-img" />
           <h3 className="customers-card-title">Customer Bookings</h3>
         </div>
 
-        <div className="customers-card" onClick={handleNewCardClick1}>
+        <div
+          className={`customers-card ${
+            activeCard === "customerSupport" ? "active-card" : ""
+          }`}
+          onClick={handleNewCardClick1}
+        >
           <img src={img2} alt="Customer Support and Feedback" className="customers-img" />
           <h3 className="customers-card-title">Customer Support and Feedback</h3>
         </div>
       </div>
 
       {/* Conditional rendering of SupportForm */}
-      {showSupportForm && (
+      {activeCard === "customerSupport" && (
         <div className="support-form-container">
           <SupportForm />
         </div>
