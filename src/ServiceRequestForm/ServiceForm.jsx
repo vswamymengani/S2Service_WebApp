@@ -5,9 +5,10 @@ import img1 from '../assets/article (1).png';
 import logoImg from '../assets/slogo.png';
 import img2 from '../assets/article (1).png';
 import ServiceBookingForm from '../Services/ServiceBookingForm'; // Import the form component
-import './Images.css';
+import ServiceHistory from './ServiceHistory'; // Import the ServiceHistory component
+import './ServiceForm.css';
 
-const Images = () => {
+const ServiceForm = () => {
   const [studentCount, setStudentCount] = useState(0);
   const [selectedCard, setSelectedCard] = useState(""); // State to track the selected card
   const navigate = useNavigate();
@@ -75,8 +76,15 @@ const Images = () => {
           <ServiceBookingForm />
         </div>
       )}
+
+      {/* Display the ServiceHistory when "Service History" is selected */}
+      {selectedCard === "serviceHistory" && (
+        <div className="service-history-container">
+          <ServiceHistory />
+        </div>
+      )}
     </div>
   );
 };
 
-export default Images;
+export default ServiceForm;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CustomerBooking.css';
+
 const CustomerBookings = () => {
   const [bookings, setBookings] = useState([]);
 
@@ -23,9 +24,9 @@ const CustomerBookings = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Customer Bookings</h2>
-      <table>
+    <div className="customer-booking-container">
+      <h2 className="customer-booking-title">Customer Bookings</h2>
+      <table className="customer-booking-table">
         <thead>
           <tr>
             <th>Customer ID</th>

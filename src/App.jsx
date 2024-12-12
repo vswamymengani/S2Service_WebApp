@@ -12,10 +12,11 @@ import Technicians from './Technicians/Technicians';
 import Tr from './Technicians/Tr';
 import Td from './Technicians/Td';
 import Offers from './Offers/Offers'
-import Images from './Images/Images';
+// import Images from './Images/Images';
+import ServiceRequestForm from './ServiceRequestForm/ServiceForm';
 import Cd from './Components/Customers/Cd';
 import Od from './Offers/Od';
-import Events from './Images/Events';
+import Events from './ServiceRequestForm/Events';
 import ServiceModify from './Services/ServiceModify';
 import Customerregister from './Components/Customers/Customerregister';
 import Home1 from './Services/Home1';
@@ -34,6 +35,8 @@ import ServiceBookingForm from './Services/ServiceBookingForm';
 import CustomerBooking from './Components/Customers/CustomerBooking';
 import BookingForm from './Components/Customers/BookingForm';
 import CustomerFeedbackForm from './Components/Customers/CustomerFeedbacl';
+import ServiceForm from './ServiceRequestForm/ServiceForm';
+import ServiceHistory from './ServiceRequestForm/ServiceHistory';
 
 function SidebarWrapper({ children }) {
   const location = useLocation();
@@ -70,7 +73,8 @@ function App() {
             <Route path="/Tr" element={<Tr/>} />
             <Route path="/Td" element={<Td/>} />
             <Route path="/Offers" element={<Offers/>} />
-            <Route path="/Images" element={<Images/>} />
+            {/* <Route path="/Images" element={<Images/>} /> */}
+            <Route path="/ServiceRequestForm" element={<ServiceRequestForm/>} />
             <Route path="/Cd" element={<Cd/>} />
             <Route path="/Od" element={<Od/>} />
             <Route path="/Events" element={<Events/>} />
@@ -92,6 +96,8 @@ function App() {
             <Route path="/CustomerBooking" element={<CustomerBooking/>} />
             <Route path="/BookingForm" element={<BookingForm/>} />
             <Route path="/CustomerFeedbackForm" element={<CustomerFeedbackForm/>} />
+            <Route path="/ServiceForm" element={<ServiceForm/>} />
+            <Route path="/ServiceHistory" element={<ServiceHistory/>} />
 
 
 

@@ -47,8 +47,8 @@ const Home = () => {
     navigate('/Offers');
   };
 
-  const handleImagesClick = () => {
-    navigate('/Images');
+  const handleSerivceRegisterFormClick = () => {
+    navigate('/ServiceForm');
   };
 
   const handleEventsClick = () => {
@@ -107,7 +107,7 @@ const Home = () => {
           <img src={img4} alt="Timetable" className="dashboard-img" />
           <h3>Offers</h3>
         </div>
-        <div className="dashboard-card" onClick={handleImagesClick}>
+        <div className="dashboard-card" onClick={handleSerivceRegisterFormClick}>
           <img src={img5} alt="Library" className="dashboard-img" />
           <h3>Service Requests</h3>
         </div>
