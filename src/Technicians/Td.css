@@ -1,5 +1,5 @@
 /* Container for the Technician Details component */
-.td-container {
+.td-container1 {
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
@@ -50,7 +50,7 @@
 }
   
 /* Table Styling */
-.td-table-container {
+.td-table-container1 {
     overflow-x: auto;
 }
   
@@ -59,8 +59,8 @@
     border-collapse: collapse;
 }
   
-.td-technician-table th, 
-.td-technician-table td {
+.td-technician-table1 th, 
+.td-technician-table1 td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
@@ -101,8 +101,8 @@
         height: 45px; /* Reduced button height for smaller screens */
     }
   
-    .td-technician-table th, 
-    .td-technician-table td {
+    .td-technician-table1 th, 
+    .td-technician-table1 td {
         padding: 8px;
     }
   

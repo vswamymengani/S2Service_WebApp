@@ -1,0 +1,110 @@
+/* Container Styling */
+.technician-ratings-container {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Heading Styling */
+  .technician-ratings-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Table Header */
+  table thead tr {
+    background-color: #4caf50;
+    color: #fff;
+    text-align: left;
+  }
+  
+  table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Alternate Row Colors */
+  table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Hover Effect */
+  table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s;
+  }
+  
+  /* Feedback Text Styling */
+  .feedback {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  /* Service Quality Badge */
+  .service-quality {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+  }
+  
+  .service-quality.High {
+    background-color: #28a745;
+  }
+  
+  .service-quality.Medium {
+    background-color: #ffc107;
+  }
+  
+  .service-quality.Low {
+    background-color: #dc3545;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+  
+    table thead {
+      display: none;
+    }
+  
+    table tr {
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  
+    table td {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    table td:last-child {
+      border-bottom: 0;
+    }
+  
+    table td::before {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+  

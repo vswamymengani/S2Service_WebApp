@@ -84,4 +84,10 @@
   .technicians-card:hover {
     cursor: pointer;
   }
-  
+  .technician-rating-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+  }
+    

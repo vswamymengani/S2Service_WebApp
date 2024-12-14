@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import img1 from './technology (1).png'; // Technician Details image
-import img2 from '../assets/technicom (1).png'; // Technician Complaints image
-import img3 from './tech-support (1).png'; // Technician Bookings image
-import logoImg from '../assets/slogo.png'; // School logo image
-import TechnicianForm from './TechnicianForm'; // Import Technician Form component
-import './Technicians.css'; // CSS file for the Technicians component
+import img1 from './technology (1).png';
+import img2 from '../assets/technicom (1).png';
+import img3 from './tech-support (1).png';
+import img4 from '../assets/Technicianratings.png';
+import img5 from '../assets/technician (2) (1).png'
+import logoImg from '../assets/slogo.png';
+import TechnicianForm from './TechnicianForm';
+import TechnicianRating from './TechnicianRatings'; // Import TechnicianRating component
+import './Technicians.css';
 
 const Technicians = () => {
   const [technicianCount, setTechnicianCount] = useState(0);
   const [showTechnicianForm, setShowTechnicianForm] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null); // State for the selected card
+  const [showTechnicianRating, setShowTechnicianRating] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,7 +37,12 @@ const Technicians = () => {
 
   const handlePerformanceClick = () => {
     setShowTechnicianForm((prevState) => !prevState);
-    setSelectedCard('performance'); // Set the selected card to "performance"
+    setSelectedCard('performance');
+  };
+
+  const handleRatingsClick = () => {
+    setShowTechnicianRating((prevState) => !prevState);
+    setSelectedCard('ratings');
   };
 
   const isSelected = (cardName) => selectedCard === cardName;
@@ -47,33 +56,24 @@ const Technicians = () => {
       </div>
 
       <div className="technicians-card-container">
-        <div
-          className={`technicians-card ${isSelected('profiles') ? 'selected' : ''}`}
-          onClick={handleTechnicianClick}
-        >
+        <div className={`technicians-card ${isSelected('profiles') ? 'selected' : ''}`} onClick={handleTechnicianClick}>
           <img src={img1} alt="Technicians" className="technicians-img" />
           <h3 className="technicians-card-title">Technician Profiles</h3>
           <h3 className="technicians-card-title">Total {technicianCount} Technicians</h3>
         </div>
 
-        <div
-          className={`technicians-card ${isSelected('complaints') ? 'selected' : ''}`}
-          onClick={handleNewFeatureClick}
-        >
+        <div className={`technicians-card ${isSelected('complaints') ? 'selected' : ''}`} onClick={handleNewFeatureClick}>
           <img src={img2} alt="TechServiceList" className="technicians-img" />
           <h3 className="technicians-card-title">TechServiceList</h3>
         </div>
 
-        <div
-          className={`technicians-card ${isSelected('performance') ? 'selected' : ''}`}
-          onClick={handlePerformanceClick}
-        >
-          <img src={img3} alt="Technician Performance" className="technicians-img" />
+        <div className={`technicians-card ${isSelected('performance') ? 'selected' : ''}`} onClick={handlePerformanceClick}>
+          <img src={img5} alt="Technician Performance" className="technicians-img" />
           <h3 className="technicians-card-title">Technician Performance</h3>
         </div>
 
-        <div className="technicians-card" onClick={handleBookingsClick}>
-          <img src={img3} alt="Technician Bookings" className="technicians-img" />
+        <div className={`technicians-card ${isSelected('ratings') ? 'selected' : ''}`} onClick={handleRatingsClick}>
+          <img src={img4} alt="Technician Ratings" className="technicians-img" />
           <h3 className="technicians-card-title">Technician Ratings and Reviews</h3>
         </div>
 
@@ -86,6 +86,12 @@ const Technicians = () => {
       {showTechnicianForm && (
         <div className="technician-form-container">
           <TechnicianForm />
+        </div>
+      )}
+
+      {showTechnicianRating && (
+        <div className="technician-rating-container">
+          <TechnicianRating />
         </div>
       )}
     </div>

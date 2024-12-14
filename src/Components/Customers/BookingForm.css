@@ -37,3 +37,9 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+.note {
+  font-size: 0.85em;
+  color: #555;
+  margin-top: 5px;
+  display: block;
+}

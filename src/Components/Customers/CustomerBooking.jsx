@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './CustomerBooking.css';
+import logoImg from "./slogo.png"; // School logo image
 
 const CustomerBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -25,6 +26,10 @@ const CustomerBookings = () => {
 
   return (
     <div className="customer-booking-container">
+      {/* School logo */}
+            <div className="customers-images-container">
+              <img src={logoImg} alt="School Logo" className="school-logo" />
+            </div>
       <h2 className="customer-booking-title">Customer Bookings</h2>
       <table className="customer-booking-table">
         <thead>

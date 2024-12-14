@@ -3,7 +3,7 @@ import './BookingForm.css';
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
-    customerID: '',
+    customerID: '00000', // Default value set to '00000'
     emailAddress: '',
     phoneNumber: '',
     address: '',
@@ -63,13 +63,14 @@ const BookingForm = () => {
 
   return (
     <form className="booking-form" onSubmit={handleSubmit}>
+      <small className="note">Note: Non-registered customers have an ID of 00000</small>
       <h2>Booking Form</h2>
 
       <div className="form-group">
         <label>Customer ID *</label>
         <input type="number" name="customerID" value={formData.customerID} onChange={handleChange} required />
       </div>
-
+      
       <div className="form-group">
         <label>Email Address *</label>
         <input type="email" name="emailAddress" value={formData.emailAddress} onChange={handleChange} required />

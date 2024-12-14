@@ -4,6 +4,7 @@ import axios from "axios";
 import img1 from "./cusdeta (1).png";
 import logoImg from "./slogo.png"; // School logo image
 import img2 from "./call (1).png";
+import img3 from './customer-service (1).png';
 import SupportForm from "./SupportForm"; // Import the SupportForm component
 import "./Customers.css";
 
@@ -81,7 +82,7 @@ const Customers = () => {
           }`}
           onClick={handleNewCardClick1}
         >
-          <img src={img2} alt="Customer Support and Feedback" className="customers-img" />
+          <img src={img3} alt="Customer Support and Feedback" className="customers-img" />
           <h3 className="customers-card-title">Customer Support and Feedback</h3>
         </div>
       </div>

@@ -19,10 +19,10 @@ const Td = () => {
   }, []);
 
   return (
-    <div className="td-container">
+    <div className="td-container1">
       {errors.general && <p className="td-error">{errors.general}</p>}
-      <div className="td-table-container">
-        <table className="td-technician-table">
+      <div className="td-table-container1">
+        <table className="td-technician-table1">
           <thead>
             <tr>
               <th>ID</th>
