@@ -38,6 +38,7 @@ import CustomerFeedbackForm from './Components/Customers/CustomerFeedbacl';
 import ServiceForm from './ServiceRequestForm/ServiceForm';
 import ServiceHistory from './ServiceRequestForm/ServiceHistory';
 import TechnicianRatings from './Technicians/TechnicianRatings';
+import TechniciansTable from './Technicians/TechniciansTable';
 
 function SidebarWrapper({ children }) {
   const location = useLocation();
@@ -100,7 +101,7 @@ function App() {
             <Route path="/ServiceForm" element={<ServiceForm/>} />
             <Route path="/ServiceHistory" element={<ServiceHistory/>} />
             <Route path="/TechnicianRatings" element={<TechnicianRatings/>} />
-
+            <Route path="/TechniciansTable" element={<TechniciansTable/>} />
 
             {/* Add other routes as needed */}
           </Routes>

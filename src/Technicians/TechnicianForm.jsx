@@ -38,7 +38,7 @@ const TechnicianForm = () => {
   };
 
   return (
-    <div className="technician-form-container">
+    <div className="technician-form-container1">
       <h2>Technician Information Form</h2>
       <form className="technician-form" onSubmit={handleSubmit}>
         <label>

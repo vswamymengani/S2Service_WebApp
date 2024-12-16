@@ -7,7 +7,7 @@ import img3 from './tech-support (1).png';
 import img4 from '../assets/Technicianratings.png';
 import img5 from '../assets/technician (2) (1).png'
 import logoImg from '../assets/slogo.png';
-import TechnicianForm from './TechnicianForm';
+import TechniciansTable from '../Technicians/TechniciansTable';
 import TechnicianRating from './TechnicianRatings'; // Import TechnicianRating component
 import './Technicians.css';
 
@@ -85,7 +85,7 @@ const Technicians = () => {
 
       {showTechnicianForm && (
         <div className="technician-form-container">
-          <TechnicianForm />
+          <TechniciansTable />
         </div>
       )}
 

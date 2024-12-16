@@ -1,0 +1,192 @@
+
+  
+  /* Heading styling */
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  /* Table styling */
+  .technicians-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table header styling */
+  .technicians-table th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px;
+    text-transform: uppercase;
+  }
+  
+  /* Table row and cell styling */
+  .technicians-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  /* Zebra striping for rows */
+  .technicians-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Hover effect on rows */
+  .technicians-table tbody tr:hover {
+    background-color: #e2e6ea;
+  }
+  
+  /* Profile picture styling */
+  .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Error message styling */
+  .error {
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .technicians-table {
+      font-size: 14px;
+    }
+  
+    .technicians-table th,
+    .technicians-table td {
+      padding: 8px;
+    }
+  
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .technicians-table {
+      font-size: 12px;
+    }
+  
+    .technicians-table th,
+    .technicians-table td {
+      padding: 5px;
+    }
+  
+    .profile-pic {
+      width: 35px;
+      height: 35px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  }
+  /* Actions column buttons */
+.edit-btn,
+.delete-btn {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background-color: #28a745;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.edit-btn:hover {
+  background-color: #218838;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .update-btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cancel-btn {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .update-btn:hover {
+    background-color: #218838;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #c82333;
+  }
+  .add-btn {
+    margin-bottom: 15px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .add-btn:hover {
+    background-color: #0056b3;
+  }
+    
