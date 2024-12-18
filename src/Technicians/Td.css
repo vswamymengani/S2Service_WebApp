@@ -111,3 +111,19 @@
         height: 40px; /* Reduced image size for smaller screens */
     }
 }
+.td-search-container {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .td-search-select {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  

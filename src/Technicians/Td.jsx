@@ -5,6 +5,8 @@ import './Td.css'; // Assuming you have styles defined in this file
 const Td = () => {
   const [techniciansDetails, setTechniciansDetails] = useState([]);
   const [errors, setErrors] = useState({});
+  const [searchType, setSearchType] = useState(''); // State for search type selection
+  const [selectedValue, setSelectedValue] = useState(''); // State for selected ID or Mobile
 
   useEffect(() => {
     const fetchTechniciansDetails = async () => {
@@ -18,9 +20,64 @@ const Td = () => {
     fetchTechniciansDetails();
   }, []);
 
+  // Extract unique IDs and Mobile Numbers for dropdown options
+  const uniqueIds = [...new Set(techniciansDetails.map((item) => item.id))];
+  const uniqueMobiles = [...new Set(techniciansDetails.map((item) => item.mobile))];
+
+  // Filter technicians based on selected ID or Mobile Number
+  const filteredTechnicians = techniciansDetails.filter((item) => {
+    if (!selectedValue) return true;
+    if (searchType === 'ID') return item.id.toString() === selectedValue;
+    if (searchType === 'Mobile') return item.mobile === selectedValue;
+    return true;
+  });
+
   return (
     <div className="td-container1">
       {errors.general && <p className="td-error">{errors.general}</p>}
+
+      {/* Search Type Selection Dropdown */}
+      <div className="td-search-container">
+        <select
+          value={searchType}
+          onChange={(e) => {
+            setSearchType(e.target.value);
+            setSelectedValue(''); // Reset selected value when search type changes
+          }}
+          className="td-search-select"
+        >
+          <option value="">Select Search Type</option>
+          <option value="ID">Search by ID</option>
+          <option value="Mobile">Search by Mobile</option>
+        </select>
+
+        {/* Conditional Dropdown for ID or Mobile based on Search Type */}
+        {searchType && (
+          <select
+            value={selectedValue}
+            onChange={(e) => setSelectedValue(e.target.value)}
+            className="td-search-select"
+          >
+            <option value="">
+              {searchType === 'ID' ? 'Select ID' : 'Select Mobile Number'}
+            </option>
+            {searchType === 'ID' &&
+              uniqueIds.map((id) => (
+                <option key={id} value={id}>
+                  {id}
+                </option>
+              ))}
+            {searchType === 'Mobile' &&
+              uniqueMobiles.map((mobile) => (
+                <option key={mobile} value={mobile}>
+                  {mobile}
+                </option>
+              ))}
+          </select>
+        )}
+      </div>
+
+      {/* Table Display */}
       <div className="td-table-container1">
         <table className="td-technician-table1">
           <thead>
@@ -36,8 +93,8 @@ const Td = () => {
             </tr>
           </thead>
           <tbody>
-            {techniciansDetails.length > 0 ? (
-              techniciansDetails.map((item) => (
+            {filteredTechnicians.length > 0 ? (
+              filteredTechnicians.map((item) => (
                 <tr key={item.id}>
                   <td>{item.id}</td>
                   <td>{item.fullname}</td>
@@ -51,7 +108,9 @@ const Td = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="8" className="td-no-data">No technician details found</td>
+                <td colSpan="8" className="td-no-data">
+                  No technician details found
+                </td>
               </tr>
             )}
           </tbody>

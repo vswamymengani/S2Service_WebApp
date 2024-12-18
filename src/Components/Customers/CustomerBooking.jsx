@@ -1,96 +1,122 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './CustomerBooking.css';
-import logoImg from "./slogo.png"; // School logo image
 
-const CustomerBookings = () => {
-  const [bookings, setBookings] = useState([]);
+const PaymentTable = () => {
+  const [payments, setPayments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchId, setSearchId] = useState(''); // State for search input
 
   useEffect(() => {
-    // Fetch all customer bookings
-    const fetchBookings = async () => {
+    // Fetch data from the backend API
+    const fetchPayments = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/bookings');
-        if (response.ok) {
-          const data = await response.json();
-          setBookings(data); // Store the bookings in state
-        } else {
-          console.error('Error fetching bookings');
-        }
-      } catch (error) {
-        console.error('Error fetching bookings:', error);
+        const response = await axios.get('http://localhost:3000/api/get-payments'); // Replace with your backend API URL
+        setPayments(response.data.payments);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching payments:', err);
+        setError('Failed to fetch payment details');
+        setLoading(false);
       }
     };
 
-    fetchBookings();
+    fetchPayments();
   }, []);
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
+  // Filter payments by ID based on the search query
+  const filteredPayments = payments.filter((payment) =>
+    payment.id.toString().includes(searchId.trim())
+  );
+
   return (
-    <div className="customer-booking-container">
-      {/* School logo */}
-            <div className="customers-images-container">
-              <img src={logoImg} alt="School Logo" className="school-logo" />
-            </div>
-      <h2 className="customer-booking-title">Customer Bookings</h2>
-      <table className="customer-booking-table">
+    <div>
+      <h2>Payment Details</h2>
+      
+      {/* Search Bar for Filtering by ID */}
+      <input
+        type="text"
+        placeholder="Search by ID"
+        value={searchId}
+        onChange={(e) => setSearchId(e.target.value)}
+        style={{ marginBottom: '10px', padding: '10px', width: '1200px' }}
+      />
+      
+      <table border="1" style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
         <thead>
           <tr>
-            <th>Customer ID</th>
-            <th>Email Address</th>
-            <th>Phone Number</th>
+            <th>ID</th>
+            <th>Amount</th>
+            <th>Customer Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Service Details</th>
+            <th>Selected Date</th>
+            <th>Selected Time</th>
             <th>Address</th>
-            <th>Booking Date</th>
-            <th>Scheduled Date</th>
-            <th>Scheduled Time</th>
-            <th>Service Type</th>
-            <th>Description of Issue</th>
-            <th>Preferred Technician</th>
-            <th>Service Category</th>
-            <th>Booking Status</th>
-            <th>Job Status</th>
-            <th>Service Completed Date</th>
-            <th>Payment Method</th>
-            <th>Payment Status</th>
             <th>Total Amount</th>
-            <th>Discount Applied</th>
-            <th>Assigned Technician ID</th>
-            <th>Technician Name</th>
-            <th>Technician Notes</th>
-            <th>Customer Feedback</th>
-            <th>Notes</th>
+            <th>Payment ID</th>
           </tr>
         </thead>
         <tbody>
-          {bookings.map((booking) => (
-            <tr key={booking.CustomerID}>
-              <td>{booking.CustomerID}</td>
-              <td>{booking.EmailAddress}</td>
-              <td>{booking.PhoneNumber}</td>
-              <td>{booking.Address}</td>
-              <td>{booking.BookingDate}</td>
-              <td>{booking.ScheduledDate}</td>
-              <td>{booking.ScheduledTime}</td>
-              <td>{booking.ServiceType}</td>
-              <td>{booking.DescriptionOfIssue}</td>
-              <td>{booking.PreferredTechnician}</td>
-              <td>{booking.ServiceCategory}</td>
-              <td>{booking.BookingStatus}</td>
-              <td>{booking.JobStatus}</td>
-              <td>{booking.ServiceCompletedDate}</td>
-              <td>{booking.PaymentMethod}</td>
-              <td>{booking.PaymentStatus}</td>
-              <td>{booking.TotalAmount}</td>
-              <td>{booking.DiscountApplied}</td>
-              <td>{booking.AssignedTechnicianID}</td>
-              <td>{booking.TechnicianName}</td>
-              <td>{booking.TechnicianNotes}</td>
-              <td>{booking.CustomerFeedback}</td>
-              <td>{booking.Notes}</td>
+          {filteredPayments.length > 0 ? (
+            filteredPayments.map((payment) => (
+              <tr key={payment.id}>
+                <td>{payment.id}</td>
+                <td>₹{(payment.amount / 100).toFixed(2)}</td>
+                <td>{payment.customer_name}</td>
+                <td>{payment.customer_contact}</td>
+                <td>{payment.customer_email}</td>
+                <td>
+                  {(() => {
+                    try {
+                      const services = JSON.parse(payment.service_details);
+                      if (Array.isArray(services) && services.length > 0) {
+                        const service = services[0];
+                        return `${service.servicename || 'N/A'} - ${service.description || 'N/A'}`;
+                      }
+                      return 'N/A';
+                    } catch {
+                      return 'N/A';
+                    }
+                  })()}
+                </td>
+                <td>{payment.selected_date}</td>
+                <td>{payment.selected_time}</td>
+                <td>
+                  {(() => {
+                    try {
+                      const address = JSON.parse(payment.address);
+                      const { addressType, flatDetails, landmark, location } = address;
+
+                      const locationString =
+                        typeof location === 'object' && location !== null
+                          ? `${location.lat}, ${location.lng}`
+                          : location || '';
+
+                      return `${addressType || ''}, ${flatDetails || ''}, ${landmark || ''}, ${locationString}`;
+                    } catch {
+                      return 'N/A';
+                    }
+                  })()}
+                </td>
+                <td>₹{(payment.total_amount / 100).toFixed(2)}</td>
+                <td>{payment.payment_id}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="11" style={{ textAlign: 'center' }}>No payments found</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default CustomerBookings;
+export default PaymentTable;
