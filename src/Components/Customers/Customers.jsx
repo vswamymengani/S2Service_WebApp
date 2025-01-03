@@ -89,7 +89,7 @@ const Customers = () => {
 
       {/* Conditional rendering of SupportForm */}
       {activeCard === "customerSupport" && (
-        <div className="support-form-container">
+        <div>
           <SupportForm />
         </div>
       )}

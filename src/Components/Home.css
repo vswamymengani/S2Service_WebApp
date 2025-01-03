@@ -177,14 +177,15 @@ body {
 }
 
 
-.school-img1 {
-  width: 45%;
+.school-img1112{
+  width: 80%;
   /* height: 50%; */
-  margin-right: 390px; /* Adds space between first and second images */
+  display: block; /* Ensures proper centering */
+  margin-right: 380px; /* Adds space between first and second images */
   margin-top: 15px; /* Moves the first image down */
 }
 
-.school-logo-img1 {
+.school-logo-img {
   /* margin-right: 30px; */
   margin-left: -130px;
   margin-top: 5px; /* Moves the second image down */

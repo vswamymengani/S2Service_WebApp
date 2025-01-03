@@ -1,11 +1,13 @@
 /* Container for the Customer Details component */
 .customer-container {
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
+  width: 800px;
+  height: 600px;
+  max-height: 600px;
+  padding: 50px;
+  box-sizing: content-box;
   font-family: Arial, sans-serif;
   color: #333;
-  background-color: lightblue;
+  background-color: lightblue; 
 }
 
 /* Button Group */
@@ -29,7 +31,6 @@
 
 .customer-register-btn {
   background-color: #4CAF50;
-
   color: white;
   width: 100px;
 }
@@ -129,4 +130,17 @@
       width: 40px;
       height: 40px;
   }
+}
+/* Container holding the logo images */
+.customers-images-container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px; /* Adds space below the images */
+}
+
+/* School logo styles */
+.school-logo2{
+  width: 60%;
+  margin-right: 10px; /* Space between the two images */
 }

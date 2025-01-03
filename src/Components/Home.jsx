@@ -76,8 +76,8 @@ const Home = () => {
       <h1 className="dashboard-title">Dashboard-S2SERVICE</h1>
       <div className="dashboard-container">
 
-  <img src={sclimg} alt="School" className="school-img1" />
-  <img src={sclimg1} alt="School Logo" className="school-logo-img1" />
+  <img src={sclimg} alt="School" className="school-img1112" />
+  <img src={sclimg1} alt="School Logo" className="school-logo-img" />
 </div>
 
 

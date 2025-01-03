@@ -1,23 +1,137 @@
-table {
+/* General Styling for Payment Table Container */
+.payment-table-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal centering */
+  justify-content: center; /* Vertical centering */
+  
+  box-sizing: border-box; /* Include padding and borders in dimensions */
+  text-align: center; /* Center text content */
+}
+
+/* Styling for the Logo Container */
+.logo-container {
+  margin-bottom: 20px;
+}
+
+/* School Logo Styling */
+.school-logo {
+  width: 400px;
+  height: auto;
+}
+
+/* Styling for the Payment Table Content */
+.payment-table-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center child elements horizontally */
+  justify-content: center; /* Center child elements vertically */
+  background: #b08888;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 1200px;
+  max-height: 1200px;  /* Fixed max height for the container */
+  height: 600px;  /* Ensure height is fixed, change if necessary */
+  overflow-y: auto;  /* Enable scrolling if content exceeds max height */
+  text-align: center;
+}
+
+
+/* Payment Table Heading Styling */
+.payment-table-heading {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Styling for the Payment Search Input */
+.payment-search-input {
   width: 100%;
+  max-width: 1200px;
+  padding: 10px;
+  margin: 0 auto 20px auto; /* Center the input and add spacing */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding in the element's width */
+}
+
+/* Styling for the Payments Table */
+.payments-table {
+  width: 100%;
+  height: 100px; /* Fixed height for the table */
+  max-width: 1200px; /* Fixed maximum width */
+  padding: 20px;
   border-collapse: collapse;
+  overflow-y: auto; /* Enable vertical scrolling if there are too many rows */
+  box-sizing: border-box; /* Ensure the padding is included in the dimensions */
+  table-layout: fixed; /* Ensure fixed column width */
 }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-th {
-  background-color: #4CAF50;
-  color: white;
+/* Styling for Table Headers and Cells */
+.payments-table th,
+.payments-table td {
+  padding: 10px;
   text-align: left;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Ensure overflow text is truncated */
+  white-space: nowrap; /* Prevent text from wrapping in table cells */
 }
 
-tr:nth-child(even) {
+.payments-table th {
   background-color: #f2f2f2;
+  color: #333;
 }
 
-tr:hover {
-  background-color: #ddd;
+.payments-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Styling for No Payments Message */
+.no-payments {
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive Design: Medium Screens */
+@media (max-width: 768px) {
+  .payment-table-content {
+    padding: 15px;
+  }
+
+  .payments-table th,
+  .payments-table td {
+    font-size: 12px;
+  }
+
+  .payment-search-input {
+    font-size: 14px;
+  }
+
+  .school-logo {
+    width: 80px;
+  }
+}
+
+/* Responsive Design: Small Screens */
+@media (max-width: 480px) {
+  .payments-table th,
+  .payments-table td {
+    font-size: 10px;
+    padding: 8px;
+  }
+
+  .payment-search-input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .school-logo {
+    width: 60px;
+  }
 }

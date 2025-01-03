@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Cd.css';
+import logoI from './slogo.png';
 
 const CustomerDetails = () => {
   const navigate = useNavigate();
@@ -26,8 +27,17 @@ const CustomerDetails = () => {
   );
 
   return (
+    <div>
+    {/* School logo */}
+    <div className="customers-images-container2">
+    <img src={logoI} alt="School Logo" className="school-logo2" />
+  </div>
+    
     <div className="customer-container">
+      
+            
       {/* Search Bar */}
+
       <div className="customer-search-bar">
         <input
           type="text"
@@ -75,6 +85,7 @@ const CustomerDetails = () => {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 };
