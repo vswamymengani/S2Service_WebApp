@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   width: 130vh;
-  height: 80vh; /* Full height */
+  height: 60vh; /* Full height */
   background-color: #9cb053; /* Light background */
 }
 
@@ -35,3 +35,16 @@ h1 {
 .sd-button:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
+/* Container holding the logo images */
+.technicians-images-container21 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px; /* Adds space below the images */
+}
+
+/* School logo styles */
+.technicians-logo21 {
+  width: 40%;
+  margin-right: 10px; /* Space between the two images */
+}  

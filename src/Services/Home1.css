@@ -1,37 +1,71 @@
-/* src/Home.css */
-.home-containerr{
+/* Wrapper to align the entire content */
+.home-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 130vh;
-    height: 80vh; /* Full height */
+    min-height: 10vh; /* Full viewport height */
     background-color: #9cb053; /* Light background */
+    padding: 60px;
+    box-sizing: border-box;
 }
 
-h1 {
+/* Container holding the logo images */
+.technicians-images-container22 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px; /* Adds space below the logo */
+}
+
+/* School logo styles */
+.technicians-logo22 {
+    width: 50%; /* Adjust size as needed */
+    margin-right: 10px;
+}
+
+/* Main container for navigation content */
+.home-containerr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  */
+}
+
+/* Styling for heading */
+.home-containerr h1 {
     margin-bottom: 20px;
-    color: #3f199f; /* Dark text color */
+    color: #3f199f;
+    font-size: 2rem; /* Adjust heading size */
 }
 
+/* Button container styles */
 .button-containerr {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between buttons */
+    gap: 15px; /* Space between buttons */
+    width: 100%; /* Full width for responsiveness */
+    max-width: 400px; /* Limit button container width */
 }
 
-.buttonr{
-    padding: 10px 20px;
+/* Button styles */
+.buttonr {
+    padding: 12px 25px;
     font-size: 16px;
     color: white;
-    background-color: #007bff; /* Bootstrap primary color */
+    background-color: #007bff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Rounded corners */
     text-decoration: none; /* Remove underline */
     text-align: center;
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .buttonr:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }

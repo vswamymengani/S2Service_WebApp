@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import logoImg from '../assets/slogo.png';
 import './Td.css'; // Assuming you have styles defined in this file
 
 const Td = () => {
@@ -33,9 +34,14 @@ const Td = () => {
   });
 
   return (
+<div>
+    <div className="technicians-images-container1">
+    <img src={logoImg} alt="School Logo" className="technicians-logo1" />
+  </div>
+
     <div className="td-container1">
       {errors.general && <p className="td-error">{errors.general}</p>}
-
+      
       {/* Search Type Selection Dropdown */}
       <div className="td-search-container">
         <select
@@ -116,6 +122,7 @@ const Td = () => {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 };

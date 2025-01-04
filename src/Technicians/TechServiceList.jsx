@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './TechServiceList.css';
-
+import logoImg from '../assets/slogo.png';
 const TechServiceList = () => {
   const [formData, setFormData] = useState({
     id: '',
@@ -101,9 +101,15 @@ const TechServiceList = () => {
   };
 
   return (
+    <div>
+      
     <div className="service-manager">
-      <h1>Service Management</h1>
+    <div className="technicians-images-container2">
+          <img src={logoImg} alt="School Logo" className="technicians-logo2" /></div>
 
+      <h1>Service Management</h1>
+    
+          
       {/* Form Section */}
       <div className="service-form-section">
         <h2>{isEditMode ? 'Update Service' : 'Add Service'}</h2>
@@ -208,6 +214,7 @@ const TechServiceList = () => {
           </table>
         </div>
       </div>
+    </div>
     </div>
   );
 };

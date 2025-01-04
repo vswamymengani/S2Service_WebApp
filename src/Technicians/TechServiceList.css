@@ -95,4 +95,16 @@
   .delete-button:hover {
     background-color: #e53935;
   }
-  
+  /* Container holding the logo images */
+.technicians-images-container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px; /* Adds space below the images */
+}
+
+/* School logo styles */
+.technicians-logo2 {
+  width: 60%;
+  margin-right: 10px; /* Space between the two images */
+}  
