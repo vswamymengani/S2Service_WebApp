@@ -19,7 +19,7 @@ const TechServiceList = () => {
   // Fetch service details
   const fetchServiceDetails = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/getservices');
+      const response = await axios.get('http://18.60.190.183:4000/getservices');
       setServiceDetails(response.data);
     } catch (err) {
       setErrors({ general: 'Failed to load service details' });
@@ -42,7 +42,7 @@ const TechServiceList = () => {
     if (isEditMode) {
       // Update service
       try {
-        await axios.put(`http://localhost:3000/updateservice/${editId}`, formData);
+        await axios.put(`http://18.60.190.183:4000/updateservice/${editId}`, formData);
         setFormData({
           id: '',
           category: '',
@@ -60,7 +60,7 @@ const TechServiceList = () => {
     } else {
       // Add service
       try {
-        await axios.post('http://localhost:3000/addservice', formData);
+        await axios.post('http://18.60.190.183:4000/addservice', formData);
         setFormData({
           id: '',
           category: '',
@@ -93,7 +93,7 @@ const TechServiceList = () => {
   // Handle delete button click
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/deleteservice/${id}`);
+      await axios.delete(`http://18.60.190.183:4000/deleteservice/${id}`);
       fetchServiceDetails();
     } catch (err) {
       setErrors({ general: 'Failed to delete service' });

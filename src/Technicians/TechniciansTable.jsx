@@ -175,7 +175,7 @@ const TechniciansTable = () => {
               <td>{tech.technicianName}</td>
               <td>
                 <img
-                  src={`http://localhost:5000/${tech.profilePicture}`}
+                  src={`http://localhost:3000/${tech.profilePicture}`}
                   alt={tech.technicianName}
                   className="profile-pic"
                 />

@@ -64,7 +64,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3000/s2customer')
+    axios.get('http://18.60.190.183:4000/s2customer')
       .then(response => setStudentCount(response.data.Student_Count))
       .catch(error => console.error('Error fetching student count:', error));
 

@@ -32,7 +32,7 @@ const Customers = () => {
   // Fetch the customer count
   const fetchCustomerCount = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/CustomerCount");
+      const response = await axios.get("http://18.60.190.183:4000/CustomerCount");
       setCustomerCount(response.data.customerCount);
     } catch (error) {
       console.error("Error fetching customer count:", error);

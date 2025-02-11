@@ -18,7 +18,7 @@ const Login = () => {
       return;
     }
 
-    axios.post('http://localhost:3000/s2admin', { email, password })
+    axios.post('http://18.60.190.183:4000/s2admin', { email, password })
       .then(response => {
         if (response.status === 200) {
           alert('Successfully logged in');

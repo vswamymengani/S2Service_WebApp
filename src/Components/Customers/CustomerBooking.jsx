@@ -12,7 +12,7 @@ const PaymentTable = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/get-payments');
+        const response = await axios.get('http://18.60.190.183:4000/api/get-payments');
         setPayments(response.data.payments);
         setLoading(false);
       } catch (err) {

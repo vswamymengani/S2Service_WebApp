@@ -12,7 +12,7 @@ const Td = () => {
   useEffect(() => {
     const fetchTechniciansDetails = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/gettechnicians');
+        const response = await axios.get('http://18.60.190.183:4000/gettechnicians');
         setTechniciansDetails(response.data);
       } catch (err) {
         setErrors({ general: 'Failed to load technician details' });

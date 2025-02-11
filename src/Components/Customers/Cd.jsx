@@ -13,7 +13,7 @@ const CustomerDetails = () => {
   useEffect(() => {
     const fetchCustomerDetails = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/CustomerDetails');
+        const response = await axios.get('http://18.60.190.183:4000/CustomerDetails');
         setCustomerDetails(response.data);
       } catch (err) {
         setErrors({ general: 'Failed to load customer details' });

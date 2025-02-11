@@ -21,7 +21,7 @@ const Technicians = () => {
   useEffect(() => {
     const fetchTechnicianCount = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/TechniciansCount');
+        const response = await axios.get('http://18.60.190.183:4000/TechniciansCount');
         setTechnicianCount(response.data.technicianCount);
       } catch (error) {
         console.error('Error fetching technician count:', error);
@@ -34,6 +34,8 @@ const Technicians = () => {
   const handleTechnicianClick = () => navigate('/Td');
   const handleNewFeatureClick = () => navigate('/TechServiceList');
   const handleBookingsClick = () => navigate('/technician-bookings');
+  
+  
 
   const handlePerformanceClick = () => {
     setShowTechnicianForm((prevState) => !prevState);
